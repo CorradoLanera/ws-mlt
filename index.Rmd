@@ -620,13 +620,6 @@ include_graphics("img/food.jpg")
 ```
 
 
----
-# .orange[Classification]
-  
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="80%"}
-include_graphics("img/classification.png")
-```
-
 
 ---
 # .orange[Classification]
@@ -663,46 +656,57 @@ include_graphics("img/classification_3.png")
 
 ---
 # .orange[Quantifying errors]
-  
-**Loss function** (for .orange[K] classes):
 
-$$\rm loss: \{1, \ldots K\}\times \{1, \ldots K\} \to [0, \infty)$$
+If $f$ is our classifiers, i.e. for any given $x$ we have $f(x) = \tilde{y}$ is the predicted class (with $y$ the real one), then
 
-<br>
+**Loss function** (for .orange[K] classes $\{1, \cdots, K\}$):
 
-Usage:
+$$\begin{split}\mathfrak{L}: \{1, \cdots, K\}&\times \{1, \cdots, K\} &\to [0, \infty)\\ (f(x)&,\ y) &\mapsto \mathfrak{L} (f(x),\ y)\end{split}$$
 
-$${\rm loss} (f(x), {\rm true\ class\ of\ }x)$$
-
-<br>
 <br>
 
 > If all mistakes are equally bad:
-$$\textrm {loss}(i, j) = \begin{array}{ll}
-1 & \textrm {if } i\neq j  \cr
-0 & \textrm {if } i= j  \cr
-\end{array}$$
-  
-  
-  
-  
+$$\mathfrak{L}(i, j) = \begin{cases}
+1 & \textrm {if } i\neq j  \\
+0 & \textrm {if } i = j  \\
+\end{cases}$$
+
+Note: if the outcome of $f$ is a set of probabilities for the classes, the same definition is valid considering 
+$$\mathfrak{L}: \{p_1, \cdots, p_K\} \times \{1, \cdots, K\} \to [0, \infty)$$
+
+
 ---
 # .orange[Risk of classifier]
     
 If the distribution of the classes is known, the .orange[risk] of classifier is the expected loss
 
 $$
-{\rm risk}(f) = \mathbb{E}[{\rm loss}(f(X), {\rm true\ class\ of\ } X)]
+{\rm risk}(f) = \mathbb{E}[\mathfrak{L}(f(X), {\rm true\ class\ of\ } X)]
 $$
 
 
 We can evaluate the classifier by how large its risk is
 
+<br>
 
-The best way to possibly train a classifier is by simply minimizing its risk
+> The best way to possibly train a classifier is by **minimizing its risk**
 
+<br>
+<br>
+
+
+> N.B. The above one is a sort of common **_misuse of notation_**: a classifier is **.orange[a (single!) model]**, and **cannot be trained**!! when we say "train a model" the real meaning is 
+.center[**"a MLT start producing models, somehow; new ones replacing the prevouses"**.]
+Interpreting "replacement" like "modification", we can pretend that a (**.orange[single]**...) model is trained.
   
-  
+
+
+---
+class: inverse, middle, center, hide-count
+# .orange[Classifiers]
+
+Main MLT examples
+
   
 ---
 # .orange[Nearest neighbor]
@@ -715,39 +719,96 @@ The best way to possibly train a classifier is by simply minimizing its risk
   
   - Assign $x$ the label of closest point
 
-.orange[__k-Nearest Neighbor (kNN)__]
+
+---
+#.orange[Nearest neighbor]
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="60%"}
+include_graphics("img/knn.png")
+```
+
+---
+##.orange[Nearest neighbor (100 data points)]
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="60%"}
+include_graphics("img/knn_2.png")
+```
+
+
+---
+class: inverse, middle, center, hide-count
+
+# Your turn
+
+.left[
+How can we __train__ a model using a nearest neighbor MLT?
+
+(i.e. what can be the _experience_?)
+]
+
+```{r, echo = FALSE}
+countdown(minutes = 1, warn_when = 10, play_sound = TRUE,
+          left = "70%", bottom = "20%")
+```
+
+
+---
+# .orange[k-Nearest] Neighbor (kNN)
 
 - Find $k$ closest training points
 
 - Take a majority vote between these points
 
 
-
 > .orange[__Rule of thumb:__] 3NN often works surprisingly well
 
 
-  
-  
-  
 ---
-#.orange[Nearest neighbor]
-    
-    
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="60%"}
-include_graphics("img/knn.png")
+##.orange[k-Nearest neighbor]
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center",fig.cap="https://medium.com/analytics-vidhya/diabetes-classification-with-knn-and-logistic-regression-2edd3760a8c7",  out.width="60%"}
+include_graphics("img/knn_k.png")
+```
+
+
+---
+class: inverse, middle, center, hide-count
+
+# Your turn
+
+.left[
+How can we __train__ a model using a k-nearest neighbor MLT?
+
+(i.e. what can be the _experience_?)
+]
+
+```{r, echo = FALSE}
+countdown(minutes = 1, warn_when = 10, play_sound = TRUE,
+          left = "70%", bottom = "20%")
 ```
 
 ---
-#.orange[Nearest neighbor (100 data points)]
+class: inverse, middle, center, hide-count
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="70%"}
-include_graphics("img/knn_2.png")
+# Your turn
+
+.left[
+**Increasing** k, we provide **.orange[more or less] flexibility** to the model?
+
+Which are the **minimum** and **maximum** possible k?
+]
+
+```{r, echo = FALSE}
+countdown(minutes = 1, warn_when = 10, play_sound = TRUE,
+          left = "70%", bottom = "20%")
 ```
+
+
 
 ---
 #.orange[kNN: drawbacks]
 
-In large dataset, finding nearest data point is expensive
+In large dataset, finding nearest data points is expensive
 
 Computational burden grows with dimension
 
@@ -762,15 +823,6 @@ __What to do for large dataset:__
 
 - Extract a concise summary
 
-
-
-
----
-#.orange[Linear classifiers] 
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="70%"}
-include_graphics("img/linear_classifier_4.png")
-```
 
 
 ---
@@ -802,10 +854,13 @@ include_graphics( "img/linear_classifier_6.png")
 ```
   
 
-.footnote[An hyperplane is a subspace of co-dimension = 1 of a space.]
+.footnote[An hyperplane is a **subspace of co-dimension = 1** of a space (i.e. 1 dimension less then the space ones).
+
+E.g., a line (1D) in a plane (2D); a plane (2D) in a 3D space; a 23D subspace in a 24D space.]
+
 ---
-#.orange[Linear classifiers:<br>Maximum margin hyperplane] 
-  
+#.orange[Linear classifiers:<br>Maximum margin hyperplane]
+
 <br>
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="70%"}
@@ -814,10 +869,10 @@ include_graphics("img/linear_classifier_7.png")
 
 
 ---
-#.orange[Linear classifiers: Support Vector Machine] 
+#.orange[Linear classifiers: Support-Vector Machine] 
 
 
-A maximum margin classifier is called __Support Vector Machine__
+A maximum margin classifier is called __Support-Vector Machine__
 
 Training a SVM is a .orange[convex] optimization problem
 
@@ -831,21 +886,21 @@ Training a SVM is a .orange[convex] optimization problem
 
 .pull-left[
   
-  Problem 1: **curved optimal decision boundary**
-    
-    - SVM solves Problem 1 using the so-called .orange[_kernel trick_]
+Problem 1: **curved optimal decision boundary**
   
-  <br>
-    <br>
-    
-    Problem 2: **classes may overlap**
-    
-    - SVM solve Problem 2 by:
-    
-    - permitting .orange[misclassified] training points
+  - SVM solves Problem 1 using the so-called .orange[_kernel trick_]
+
+<br>
+<br>
   
+Problem 2: **classes may overlap**
+  
+- SVM solve Problem 2 by:
+  
+  - permitting .orange[misclassified] training points (**C** hyper-parameter)
+
   - each such point contributes a .orange[_cost_] to the optimization target function
-  
+
   - using the .orange[kernel tricks]
   
 ]
@@ -938,34 +993,51 @@ Problem 3: more than two classes
 
 
 
+---
+class: inverse, middle, center, hide-count
+
+# Your turn
+
+.left[
+The **C** parameter of SVMs MLTs determines the ammount of violation admitted, i.e. magnitude of data allowed to _cross the line_ (so, it cannot be negative).
+
+C = 0 is "no violation admitted".
+
+**Increasing** C, we provide **.orange[more or less] flexibility** to the model?
+]
+
+```{r, echo = FALSE}
+countdown(minutes = 1, warn_when = 10, play_sound = TRUE,
+          left = "70%", bottom = "20%")
+```
+
+
+
+
 
 ---
 # .orange[Ensemble classifiers]
 
-__Ensemble Classifier__
 
+__Weak classifier__
+
+Consider two classes of equal size: assign class by coin flip: 50% expected error
+
+> weak classifier: .orange[error rate **slightly below** 50%]
+
+
+__Ensemble Classifier__
 - trains .orange[many _weak_] classifiers
 
 - .orange[combines results] by majority vote
 
-<br>
-
-__Error rate__
-
-- proportion of miclassified points
-
-- expected number of error
-
-<br>
+If weak classifiers are applicable to $k>2$ classes, so it is ensemble.
 
 
-__Weak classifier__
 
-- consider two classes of equal size
+<br><br><br>
 
-- assign class by coin flip: 50% expected error
-
-- weak classifier: .orange[error rate slighly below 50%]
+**Important examples: .orange[Random Forests]**
 
 
 
@@ -1006,7 +1078,8 @@ Does the majority make the right choice?
 
 
 .pull-right[
-```{r, message = FALSE, warning=FALSE, echo = FALSE, fig.align='center', out.width="100%", background='transparent'}
+.panelset[
+```{r, panelset = TRUE, message = FALSE, warning=FALSE, echo = FALSE, fig.align='center', out.width="100%", background='transparent'}
 
 vote_class_plot <- function(p = 0.55) {
   n_classifier <- 1:250
@@ -1024,12 +1097,13 @@ vote_class_plot <- function(p = 0.55) {
 vote_class_plot()
 ```
 ]
+]
 
 
 
 
 ---
-# .orange[Classification by majority vote]
+## .orange[Classification by majority vote]
 
 ```{r, message = FALSE, warning=FALSE, echo = FALSE, fig.align='center', out.width="70%"}
 
@@ -1044,28 +1118,6 @@ grid.arrange(
   vote_class_plot(.85), 
   nrow = 2)
 ```
-
-
-
-
----
-# .orange[Majority vote]
-
-Combining weak learner by voting is beneficial<br> .orange[if they are stochastically independent]
-
-
-But... .orange[training data creates dependence]
-
-
-<br>
-<br>
-<br>
-
-Ensemble classifiers use various strategies to produce weak learners that are only weakly dependent
-
-> Important examples: .orange[Random Forests]
-
-
 
 
 ---
@@ -1105,98 +1157,46 @@ include_graphics("img/tree_4.png")
 
 
 .pull-left[
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="90%"}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
 include_graphics( "img/tree_4.png")
 ```
 ]
 .pull-right[
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="90%"}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
 include_graphics("img/tree_5.png")
 ```
 ]
 
 
 
-
----
-# .orange[Randomized ensemble of Trees]
-
-.orange[Training]: Input $n$ training points of classes $1,\ldots, K$
-
-  - select $n$ points uniformly at random with replacement
-  
-  - train a tree on the randomized data set
-
-<br>
-
-
-.orange[repeat] $m$ times
-
-  - $m$ trees
-
-<br>
-
-.orange[Classification]: input unlabeled data point $x$
-
-  - compute class label of $x$ under each of the $m$ trees
-
-  - take majority vote
-
-
-
----
-# .orange[Randomized ensemble of Trees] 
-
-Tree ensemble performs reasonably well (but not as SVM):
-
-> tree classifiers still too dependent
-
-<br>
-<br>
-
-Recall: tree training
-
- >in each step, computes best split point along each axix then split the axis that minimizes error So, .orange[split is optimized over all axes]!
-
-
-<br>
-<br>
-
-Idea: In each step, select (small) .orange[random subset of axes] and only optimize over those.
-
-
-
 ---
 # .orange[Random forest]
-
+  
 .orange[Tree training]: Input $n$ training points of classes $1,\ldots, K$
+  
+- select $n$ points uniformly at random with replacement
 
-  - select $n$ points uniformly at random with replacement
+- train a tree on the randomized data set
 
-  - train a tree on the randomized data set
-
-<br>
 
 .orange[For each tree]:
-
-  - in each step, select $l$ axes at random
   
-  - compute best split point for each of these axes
-  
-  - split along the oone that minimizes error
+- in each step, select $m$ axes at random (**mtry** hyper-parameter)
 
-<br>
+- compute best split point for each of these axes
 
-> .orange[Train $m$ trees in total]
->
->  - compute class label of new point $x$ under each of the $m$ trees
+- split along the one that minimizes error
+
+
+> .orange[Train **ntree** trees in total]
+>  - compute class label of new point $x$ under each of the **ntree** trees
 >  - take majority vote
 
 
 
 
 ---
-#.orange[Random forest: hyperplane]
+#.orange[Hyperplane comparison]
 
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="70%", fig.cap='2 classes classification'}
@@ -1204,29 +1204,59 @@ include_graphics("img/hyperplane.png")
 ```
 
 ---
-#.orange[Random forest: hyperplane]
+#.orange[Hyperplane comparison]
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="65%", fig.cap='Hyperplane for XOR pattern'}
 include_graphics("img/hyperplane_2.png")
 ```
 
 
+
+
+
 ---
-# .orange[Summary]
+class: inverse, middle, center, hide-count
 
-Ensemble .orange[combine weak classifiers] by voting
+# Your turn
 
-<br>
+.left[
+The **mtry** parameter of RF MLTs determines how many variables are randomly selected to train each tree.
 
-A lot of variance between classifers is beneficial
+- **Increasing** mtry, we provide **.orange[more or less] flexibility** to the model?
+- Which are the **minimum** and **maximum** possible mtry?
 
-<br>
+The **ntree** parameter of RF MLTs determines how many trees there are in the forest (i.e., you are going to train).
 
-Random forest (and SVMs) are among the best classifiers available
+- What is the effect of **increasing** ntree?
 
-<br>
+]
 
-If weak classifier is applicable to $>2$ classes, so it is ensemble
+```{r, echo = FALSE}
+countdown(minutes = 1, warn_when = 10, play_sound = TRUE,
+          left = "70%", bottom = "15%")
+```
+
+
+
+
+---
+class: middle, hide-count, inverse
+
+# .center[.orange[Break]]
+
+(Unordered) tips: 
+- get up
+- stretch
+- look _far away_ (relax your eyes)
+- hydrate
+- go to the bathroom
+
+```{r, echo = FALSE}
+countdown(minutes = 10, warn_when = 3, play_sound = TRUE,
+          left = "65%", bottom = "5%")
+```
+
+
 
 
 
@@ -1246,132 +1276,135 @@ class: inverse, middle, center, hide-count
 
 
 ---
-# .orange[Error for a classifier]
-
-
-.orange[Training error] for a classifier:
-
-$$\rm Training\ error = \frac{no\ of\ miclassified\ training\ points}{no\ of\ training\ points}$$
-
-
-
-.orange[Prediction error] for a classifier
-
-  - harder to define: with respect to which distribution?
-  
-  - ideally the distribution of the underlying data source
-
-$$\rm Prediction\ error = \mathbb{E}(proportion\ of\ misclassified\ points)$$
-
-<br>
-<br>
-
-Assuming all error costs the same: .orange[ __prediction error__] is the risk
-
-
-
----
 # .orange[Overfitting]
-
-
+  
+  
 Sample data acts as proxy for underlying data source
 
-.orange[_Overfitting_] means adapting too closely to the idiosyncrasies of a sample set
-
-<br>
-<br>
-<br>
-<br>
+.orange[_Over-fitting_] means adapting too closely to the idiosyncrasies of a sample set
 
 **Result**: Small error on training data but .orange[poor predictive performance]!
-
-
-
-
----
-class: center, middle, hide-count
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
-include_graphics("img/overfit.jpg")
-```
-
-
-
----
-# .orange[Parameters]
-
-.orange[Tree classifier]
-
-  - Number of splits
-
-<br>
-
-.orange[Tree ensemble]
-
-  - tree parameters
-
-  - number of trees
-
-<br>
-
-
-.orange[Random forest]
-
-  - tree parameters
-
-  - number of trees
-
-  - number of random dimensions
-
-
----
-#.orange[Parameters Vs. hyper-parameters]
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="90%"}
-include_graphics("img/overfitting_5.png")
-```
-
-
-
----
-# .orange[Terminology]
-
-> Example: Tree
-
-<br>
-<br>
-
-__Model:__  Family of classifiers
-
-- All trees with $k$ splits
-
-<br>
-
-__Parameter__  Indexes different classifiers within model
-
-  - Split locations
-
-<br>
   
-__Hyperparameter__  Indexes different  models
-
-  - $k$
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="90%"}
+knitr::include_graphics("img/overfit.jpg")
+```
 
 
 ---
 # .orange[Overfitting]
-
+  
 Model is .orange[not able to generalize]
 
 Learn the data and .orange[not the underlying function]
 
 Performs well on training data but .orange[poorly with new data]
 
-<br>
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="90%"}
-include_graphics("img/figure3.png")
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
+knitr::include_graphics("img/figure3.png")
 ```
+
+
+
+---
+name: berra
+class: center, middle, hide-count
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="100%"}
+knitr::include_graphics("img/yogi-berra-photo-quote-1.jpg")
+```
+
+
+
+
+
+---
+# .orange[Bias and Variance trade-off]
+  
+In order to minimize test error on new data points we need to
+> **select a function** that achieves .orange[*low variance*] and .orange[*low bias*].
+
+
+- .orange[**Variance**] refers to the amount by which our predictions would **change if we estimated using a different training set**. 
+> The more flexible the model, the higher the variance.
+
+- .orange[**Bias**] refers to the **error that introduced by the approximation** we are making with our model (represent complicated data by a simple model). 
+> The more simple the model, the higher the bias.
+
+There is a .orange[trade off] between increasing variance (flexibility) and decreasing bias (simplicity) and vice versa.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="30%"}
+knitr::include_graphics("img/tradeoff.png")
+```
+
+
+---
+#.orange[Bias variance trade-off]
+  
+  
+A predictor having high bias or variance won't do well in predicting on new data
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="70%"}
+knitr::include_graphics("img/BV.png")
+```
+
+
+Good, generalizable predictors need to have .orange[both low bias and low variance]
+
+
+
+
+---
+
+#.orange[(Hyper-)parameters]
+
+ 
+MLT                 |parameters             | Hyper-parameters|
+--------------------|-----------------------|-----------------
+Decision tree       | Splits' locations     | # splits
+Random forest       | Splits' locations     | # splits<br># trees<br># dimension (randomly selected)
+SVM                 | Hyper-plane's position | type of nonlinearity<br>margin<br>overlap
+Logistic regression | $\beta$s              | polynomial degrees<br># nodes for splines<br>interactions
+ANN                 | weights               | # layers<br># neurons/layer<br># training's epochs<br>batch size<br>learning rate
+  
+  
+---
+# .orange[K-fold cross validation]
+  
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
+knitr::include_graphics("img/splits.png")
+```
+
+Generally, .orange[k between 5 and 10] avoids over-training the model (variance), whilst avoiding too few training points (bias)
+
+
+---
+#.orange[Cross validation variability]
+  
+  
+  
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
+knitr::include_graphics("img/overfitting.png")
+```
+
+
+
+---
+# .orange[Suggestions]
+  
+### Validate (and fine-tune) your Model
+Separate your data into .orange[training], .orange[validation], and .orange[test sets].
+
+> .orange[If you take **ANY** decision after having seen a performance on a data set, it becomes a training one (even if you have treated it as a test)]
+
+### Do not be fooled by Accuracy
+
+For event that only happens 1% of the time,  you can easily report an accuracy of 99%: meaningless.
+
+Before starting a (classification) project, better figure out which precision and recall application (or _metrics_) requires to be useful
+
+> - .orange[Build the model with these metrics on your mind]
+> - .orange[When in doubt use balanced metrics]
 
 
 
