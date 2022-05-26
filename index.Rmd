@@ -397,11 +397,11 @@ A __task__ is defined in terms of _how the ML should process a collection of Exa
 
 **Learning Problem** | Task **T**  
 ---------------------|------------
-Learning Checkers    | .orange[Playing checkers]
-Handwriting recognition | .orange[Recognizing/Classifying handwritten words/numbers within images]
-Self-driving car | .orange[Driving from A to B]
-Diseases extraction from EHR | .orange[classify EHR by the disease reported (in free-text natural language)] 
-Describe patient movement in bed | .orange[At any given time provide position and dynamics of patients]
+Learning Checkers    | **Playing checkers**
+Handwriting recognition | **Recognizing/Classifying handwritten words/numbers within images**
+Self-driving car | **Driving from A to B**
+Diseases extraction from EHR | **classify EHR by the disease reported (in free-text natural language)** 
+Describe patient movement in bed | **At any given time provide position and dynamics of patients**
 
 </small>
 
@@ -436,11 +436,11 @@ Usually __performance__ is measured in terms of:
 
 **Learning Problem** | Task **T** | Performance **P** 
 ---------------------|------------|-------------------
-Learning Checkers    | Playing checkers | .orange[% games won ]
-Handwriting recognition | Recognizing/Classifying handwritten words/numbers within images | .orange[% correctly classified words ]
-Self-driving car | Driving from A to B | .orange[Average distance traveled before an error (as judged by humans)]
-Diseases extraction from EHR | classify EHR by the disease reported (in free-text natural language) | .orange[% of EHR correctly classified]
-Describe patient movement in bed | At any given time provide position and dynamics of patients | .orange[% average error in position or dynamics]
+Learning Checkers    | Playing checkers | **% games won **
+Handwriting recognition | Recognizing/Classifying handwritten words/numbers within images | **% correctly classified words **
+Self-driving car | Driving from A to B | **Average distance traveled before an error (as judged by humans)**
+Diseases extraction from EHR | classify EHR by the disease reported (in free-text natural language) | **% of EHR correctly classified**
+Describe patient movement in bed | At any given time provide position and dynamics of patients | **% average error in position or dynamics**
 
 </small>
 
@@ -457,11 +457,11 @@ Describe patient movement in bed | At any given time provide position and dynami
 
 **Learning Problem** | Task **T** | Performance **P** | Experience **E** 
 ---------------------|------------|-------------------|-----------------
-Learning Checkers    | Playing checkers | % games won | .orange[playing (against itself)]
-Handwriting recognition | Recognizing/Classifying handwritten words/numbers within images | % correctly classified words | .orange[process data sets of handwritten words with given classification]
-Self-driving car | Driving from A to B | Average distance traveled before an error (as judged by humans) | .orange[Sequence of videos, still images, and steering commands recorded while observing a human driver]
-Diseases extraction from EHR | classify EHR by the disease reported (in free-text natural language) | % of EHR correctly classified | .orange[process EHRs with given classification]
-Describe patient movement in bed | At any given time provide position and dynamics of patients | % average error in position or dynamics | .orange[time-series of patient kinetic measures taken from wearable devices and bed weight sensors, and position and dynamics collected by videos recorded observing inbed patients]
+Learning Checkers    | Playing checkers | % games won | **playing (against itself)**
+Handwriting recognition | Recognizing/Classifying handwritten words/numbers within images | % correctly classified words | **process data sets of handwritten words with given classification**
+Self-driving car | Driving from A to B | Average distance traveled before an error (as judged by humans) | **Sequence of videos, still images, and steering commands recorded while observing a human driver**
+Diseases extraction from EHR | classify EHR by the disease reported (in free-text natural language) | % of EHR correctly classified | **process EHRs with given classification**
+Describe patient movement in bed | At any given time provide position and dynamics of patients | % average error in position or dynamics | **time-series of patient kinetic measures taken from wearable devices and bed weight sensors, and position and dynamics collected by videos recorded observing inbed patients**
 
 </small>
 
@@ -561,10 +561,6 @@ With input data labeled on the fly by .orange[oracle's knowledge], the model cyc
 ---
 # .orange[Basic **components**]
 
-<br>
-<br>
-<br>
-
 .orange[Training dataset]: data used as input to the learner to train the model
 
 .orange[Validation dataset]: data used by the learner for validation and optimization
@@ -574,90 +570,6 @@ With input data labeled on the fly by .orange[oracle's knowledge], the model cyc
 .orange[Cost (or loss) function]: a function to optimize in the ML system (sum of squared errors over the training data set)
 
 .orange[Test dataset]: data provided to the trained model for performance estimations
-
-
-
-
----
-# .orange[Machine Learning in action]
-  
-```{r, echo=FALSE, message=FALSE, warning=FALSE,  out.width="40%"}
-myimages <- list.files(
-  "img/pendulum/", pattern = ".png", full.names = TRUE
-)
-include_graphics(myimages)
-```
-
-$$f(\rm state,\ action) = \rm next\ state$$
-  
-
-.panelset[
-
-.panel[.panel-name[Your Turn]
-.pull-left[
-Task: .can-edit[]
-  - Outcome: .can-edit[]
-
-Performance: .can-edit[]
-
-]
-.pull-right[
-Experience: .can-edit[]
-  + .can-edit[]
-  + .can-edit[]
-  + .can-edit[]
-  + .can-edit[]
-]
-]
-
-.panel[.panel-name[Answer]
-.pull-left[
-Task: maintain the bar vertically
-  - Outcome: Action (1 var): (new) chart .orange[signed velocity]
-
-Performance: .orange[distance] from vertical
-]
-
-.pull-right[
-Experience: State (4 vars):
-  - cart .orange[location]
-  - cart .orange[velocity]
-  - .orange[angle]
-  - .orange[angular velocity]
-]
-
-]
-]
-
-```{r, echo = FALSE}
-countdown(minutes = 1, warn_when = 10, play_sound = TRUE,
-          left = "70%", bottom = "30%")
-```
-
-
----
-# .orange[Machine Learning in action]
-  
-<br>
-<br>
-<br>
-
-<center>
-<video width="320" height="240" controls>
-<source src="img/videoplayback.mp4" type="video/mp4">
-</video>
-</center>
-
-<br>
-<br>
-<br>
-<br>
-
-<small>
-<br>
-(credits: PILCO - Probabilistic Inference for Learning COntrol, University of Cambridge)
-
-
 
 
 
