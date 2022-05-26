@@ -16,7 +16,7 @@
     <link href="index_files/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
     <script src="index_files/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
     <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x73aa38964b5456e8d405c244824ee72","expires":1}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"xc17c8f290514ee28c4cb9b68c0c2ce6","expires":1}</script>
     <script src="index_files/himalaya-1.1.0/himalaya.js"></script>
     <script src="index_files/js-cookie-3.0.0/js.cookie.js"></script>
     <link href="index_files/editable-0.2.6/editable.css" rel="stylesheet" />
@@ -573,7 +573,7 @@ class: middle, hide-count, inverse
 - hydrate
 - go to the bathroom
 
-<div class="countdown" id="timer_62900653" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="3">
+<div class="countdown" id="timer_62900c1d" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="3">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -722,7 +722,7 @@ How can we __train__ a model using a nearest neighbor MLT?
 (i.e. what can be the _experience_?)
 ]
 
-<div class="countdown" id="timer_629005ba" style="bottom:20%;left:70%;" data-audio="true" data-warnwhen="10">
+<div class="countdown" id="timer_62900cd2" style="bottom:20%;left:70%;" data-audio="true" data-warnwhen="10">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -758,7 +758,7 @@ How can we __train__ a model using a k-nearest neighbor MLT?
 (i.e. what can be the _experience_?)
 ]
 
-<div class="countdown" id="timer_62900658" style="bottom:20%;left:70%;" data-audio="true" data-warnwhen="10">
+<div class="countdown" id="timer_62900d26" style="bottom:20%;left:70%;" data-audio="true" data-warnwhen="10">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -773,7 +773,7 @@ class: inverse, middle, center, hide-count
 Which are the **minimum** and **maximum** possible k?
 ]
 
-<div class="countdown" id="timer_629004cd" style="bottom:20%;left:70%;" data-audio="true" data-warnwhen="10">
+<div class="countdown" id="timer_62900abb" style="bottom:20%;left:70%;" data-audio="true" data-warnwhen="10">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -962,7 +962,7 @@ C = 0 is "no violation admitted".
 **Increasing** C, we provide **.orange[more or less] flexibility** to the model?
 ]
 
-<div class="countdown" id="timer_629005ff" style="bottom:20%;left:70%;" data-audio="true" data-warnwhen="10">
+<div class="countdown" id="timer_62900ab4" style="bottom:20%;left:70%;" data-audio="true" data-warnwhen="10">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1150,7 +1150,7 @@ The **ntree** parameter of RF MLTs determines how many trees there are in the fo
 
 ]
 
-<div class="countdown" id="timer_6290052b" style="bottom:15%;left:70%;" data-audio="true" data-warnwhen="10">
+<div class="countdown" id="timer_62900e0a" style="bottom:15%;left:70%;" data-audio="true" data-warnwhen="10">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1169,9 +1169,13 @@ class: middle, hide-count, inverse
 - hydrate
 - go to the bathroom
 
-<div class="countdown" id="timer_62900513" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="3">
+<div class="countdown" id="timer_62900ac2" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="3">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
+
+
+
+
 
 
 
@@ -1189,131 +1193,33 @@ class: inverse, middle, center, hide-count
 
 
 ---
-# .orange[Error for a classifier]
-
-
-.orange[Training error] for a classifier:
-
-`$$\rm Training\ error = \frac{no\ of\ miclassified\ training\ points}{no\ of\ training\ points}$$`
-
-
-
-.orange[Prediction error] for a classifier
-
-  - harder to define: with respect to which distribution?
-  
-  - ideally the distribution of the underlying data source
-
-`$$\rm Prediction\ error = \mathbb{E}(proportion\ of\ misclassified\ points)$$`
-
-&lt;br&gt;
-&lt;br&gt;
-
-Assuming all error costs the same: .orange[ __prediction error__] is the risk
-
-
-
----
 # .orange[Overfitting]
-
-
+  
+  
 Sample data acts as proxy for underlying data source
 
-.orange[_Overfitting_] means adapting too closely to the idiosyncrasies of a sample set
-
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
+.orange[_Over-fitting_] means adapting too closely to the idiosyncrasies of a sample set
 
 **Result**: Small error on training data but .orange[poor predictive performance]!
-
-
-
-
----
-class: center, middle, hide-count
-
-&lt;img src="img/overfit.jpg" width="100%" style="display: block; margin: auto;" /&gt;
-
-
-
----
-# .orange[Parameters]
-
-.orange[Tree classifier]
-
-  - Number of splits
-
-&lt;br&gt;
-
-.orange[Tree ensemble]
-
-  - tree parameters
-
-  - number of trees
-
-&lt;br&gt;
-
-
-.orange[Random forest]
-
-  - tree parameters
-
-  - number of trees
-
-  - number of random dimensions
-
-
----
-#.orange[Parameters Vs. hyper-parameters]
-
-&lt;img src="img/overfitting_5.png" width="90%" style="display: block; margin: auto;" /&gt;
-
-
-
----
-# .orange[Terminology]
-
-&gt; Example: Tree
-
-&lt;br&gt;
-&lt;br&gt;
-
-__Model:__  Family of classifiers
-
-- All trees with `\(k\)` splits
-
-&lt;br&gt;
-
-__Parameter__  Indexes different classifiers within model
-
-  - Split locations
-
-&lt;br&gt;
   
-__Hyperparameter__  Indexes different  models
-
-  - `\(k\)`
+&lt;img src="img/overfit.jpg" width="90%" style="display: block; margin: auto;" /&gt;
 
 
 ---
 # .orange[Overfitting]
-
+  
 Model is .orange[not able to generalize]
 
 Learn the data and .orange[not the underlying function]
 
 Performs well on training data but .orange[poorly with new data]
 
-&lt;br&gt;
 
-&lt;img src="img/figure3.png" width="90%" style="display: block; margin: auto;" /&gt;
-
+&lt;img src="img/figure3.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 
 ---
-# .orange[Overfitting: example ]
+# .orange[Overfitting: example]
 
 Two alternative models of human papillomavirus infection and its progression to cervical cancer (CIN) 
 
@@ -1343,9 +1249,67 @@ However, the complex model produced a pattern that poorly forecasts future preva
 ---
 # .orange[Overfitting]
 
-Every additional parameter in the model introduces new sources of uncertainty and potential to affect results in non-intuitive ways that may either be useful or deceptive
+Every additional parameter in the model introduces **new sources of uncertainty** and potential to affect results in non-intuitive ways that may either be useful or deceptive
 
 Complex models must be well-characterized in terms of their behavior before they are used for .orange[__forecasting__ ]
+
+
+
+---
+name: berra
+class: center, middle, hide-count
+
+&lt;img src="img/yogi-berra-photo-quote-1.jpg" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+
+
+
+---
+# .orange[Bias and Variance trade-off]
+  
+In order to minimize test error on new data points we need to
+&gt; **select a function** that achieves .orange[*low variance*] and .orange[*low bias*].
+
+
+- .orange[**Variance**] refers to the amount by which our predictions would **change if we estimated using a different training set**. 
+&gt; The more flexible the model, the higher the variance.
+
+- .orange[**Bias**] refers to the **error that introduced by the approximation** we are making with our model (represent complicated data by a simple model). 
+&gt; The more simple the model, the higher the bias.
+
+There is a .orange[trade off] between increasing variance (flexibility) and decreasing bias (simplicity) and vice versa.
+
+&lt;img src="img/tradeoff.png" width="30%" style="display: block; margin: auto;" /&gt;
+
+
+---
+#.orange[Bias variance trade-off]
+  
+  
+A predictor having high bias or variance won't do well in predicting on new data
+
+&lt;img src="img/BV.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+
+Good, generalizable predictors need to have .orange[both low bias and low variance]
+
+
+
+
+---
+
+#.orange[(Hyper-)parameters]
+
+ 
+MLT                 |parameters             | Hyper-parameters|
+--------------------|-----------------------|-----------------
+Decision tree       | Splits' locations     | # splits
+Random forest       | Splits' locations     | # splits&lt;br&gt;# trees&lt;br&gt;# dimension (randomly selected)
+SVM                 | Hyper-plane's position | type of nonlinearity&lt;br&gt;margin&lt;br&gt;overlap
+Logistic regression | `\(\beta\)`s              | polynomial degrees&lt;br&gt;# nodes for splines&lt;br&gt;interactions
+ANN/DL              | weights               | # layers&lt;br&gt;# neurons/layer&lt;br&gt;# training's epochs&lt;br&gt;batch size&lt;br&gt;learning rate
+  
 
 
 ---
@@ -1353,8 +1317,9 @@ Complex models must be well-characterized in terms of their behavior before they
 
 &gt; How to select an adequate model based on sample data?
 
+&lt;br&gt;
 
-.orange[__Recall__]: model selection chooses a model complexity (hyperparameter)
+__Recall__: model selection **.orange[chooses a model complexity]** (hyper-parameter)
   
   - Training a classifiers chooses parameter values
   
@@ -1369,39 +1334,15 @@ Complex models must be well-characterized in terms of their behavior before they
 
 
 
-
 ---
 # .orange[Cross-validation]
 
 
-&gt; How to select an adequate model based on sample data?
+- train classifiers with .orange[different hyper-parameters] on training data
 
+- compute prediction errors under true distribution
 
-
-.orange[**Recall**]: we use sample data as proxy for actual data source
-   
-  - ask how to select a model if the underlying distribution was known
-
-  - apply sample principle
-
-  - approximate data source by sample data
-
-&lt;br&gt;
-&lt;br&gt;
-
-
-This is called .orange[__cross-validation__ ]
-
----
-# .orange[Cross-validation]
-
-If we knew underlying distribution
-  
-  - train classifiers with .orange[different hyperparameters] on training data
-  
-  - compute prediction errors under true distribution
-  
-  - choose the one with .orange[smallest prediction error]
+- choose the one with .orange[smallest prediction error]
 
 &lt;br&gt;
 
@@ -1411,7 +1352,6 @@ If we knew underlying distribution
 &lt;br&gt;
 
 Approximation of actual data source by sample data
-
 
   -  split training data set
   
@@ -1425,7 +1365,7 @@ Approximation of actual data source by sample data
 ---
 # .orange[Cross-validation]
 
-Data splitting estimates the .orange[predicion error from data]
+Data splitting estimates the .orange[prediction error from data]
 
 &lt;br&gt;
 
@@ -1455,7 +1395,7 @@ Prediction error estimates can be used in two ways
   c. test set (hold out set)
 
 
-2. Train classifiers with .orange[different hyperparameters] on training set
+2. Train classifiers with .orange[different hyper-parameters] on training set
 
 3. Select that with smallest .orange[prediction error on validation set]
 
@@ -1469,27 +1409,6 @@ Prediction error estimates can be used in two ways
 
 
 
-
-
----
-# .orange[Cross validation: how to split the data]
-
-If samples assumed i.i.d., split at random
-
-  - sampling w/o replacement
-  
-&lt;br&gt;
-
-Remaining question: .orange[how large] should be each set be?
-
-
-&lt;br&gt;
-
-Advantages of different choices
-
-  - Large training set `\(\Leftrightarrow\)` .orange[more accurate] classifier
-  
-  - Small training set `\(\Leftrightarrow\)` .orange[reflects variation] between sample sets
 
 
 
@@ -1532,17 +1451,19 @@ class: hide-count
 
 1. Divide remaining data into `\(K\)` .orange[equally sized] blocks
 
-2. Cross-validate: for `\(k = 1,\ldots, K\)`
+2. Cross-validate: for `\(k = 1,\cdots, K\)`
 
   - remove block `\(k\)` from training data
   
-  - train classifier on remaining bloks.
+  - train classifier on remaining blocks.
   
   - estimate prediction error on block `\(k\)`
   
 3. Estimates over all `\(k\)` and select best classifier
 
-4. When classifier is chosen, estimate its performance .orange[on test set]
+4. Retrain the best classifiers (i.e. with its hyper-parameters) on the whole training set (all K sets!)
+
+5. When classifier is chosen and retrained, estimate its performance .orange[on test set]
 
 
 
@@ -1573,73 +1494,91 @@ The .orange[CV error rate] is then calculated as the average of these K error ra
 &lt;img src="img/Cv3.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 
----
-# .orange[K-fold cross validation: how many folds?]
 
+
+
+---
+# .orange[K-fold cross validation]
+  
 &lt;img src="img/splits.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 Generally, .orange[k between 5 and 10] avoids over-training the model (variance), whilst avoiding too few training points (bias)
 
 
-
 ---
-# .orange[Bias and Variance trade-off]
-
-In order to minimise test error on new data points, statistical theory (out of the scope of this workshop) tells us that we need to select a function that achieves .orange[*low variance*] and .orange[*low bias*].
-
-
- - .orange[**Variance**] refers to the amount by which our predictions would **change if we estimated using a different training set**. 
-   &gt; The more flexible the model, the higher the variance.
-
- - .orange[**Bias**] refers to the **error that introduced by the approximation** we are making with our model (represent complicated data by a simple model). 
-   &gt; The more simple the model, the higher the bias.
-
-There is a .orange[trade off] between increasing variance (flexibility) and decreasing bias (simplicity) and vice versa.
-
-&lt;img src="img/tradeoff.png" width="40%" style="display: block; margin: auto;" /&gt;
-
-
----
-class: hide-count
-#.orange[Bias variance trade-off]
-
-
-The bias-variance trade-off concerns the generalizability of a trained predictor in light of new data points
-
-If a predictor has high bias and/or high variance, it will not do well in predicting on new data
-
-&lt;img src="img/BV.png" width="60%" style="display: block; margin: auto;" /&gt;
-
-
-Good, generalizable predictors need to have .orange[both low bias and low variance]
+#.orange[Cross validation variability]
+  
+  
+  
+&lt;img src="img/overfitting.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 
 
 ---
-#.orange[Summary]
+# .orange[Suggestions]
+  
+### Validate (and fine-tune) your Model
+Separate your data into .orange[training], .orange[validation], and .orange[test sets].
+
+&gt; .orange[If you take **ANY** decision after having seen a performance on a data set, it becomes a training one (even if you have treated it as a test)]
+
+### Do not be fooled by Accuracy
+
+For event that only happens 1% of the time,  you can easily report an accuracy of 99%: meaningless.
+
+Before starting a (classification) project, better figure out which precision and recall application (or _metrics_) requires to be useful
+
+&gt; - .orange[Build the model with these metrics on your mind]
+&gt; - .orange[When in doubt use balanced metrics]
 
 
 
 
-Cross-validation .orange[selects model] and .orange[assess classifier]
+---
+class: inverse, middle, center, hide-count
 
-  - Both require estimate the prediction error
+# Your turn
+
+.left[
+
+- What is the effect of **Increasing** k in a k-fold cross-validation procedure?
+- Which are the **minimum** and **maximum** possible k?
+
+]
+
+<div class="countdown" id="timer_62900ae9" style="bottom:15%;left:70%;" data-audio="true" data-warnwhen="10">
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 
-Estimates are obtained from .orange[separate training and test data sets]
 
 
-Assessment must use .orange[separate validation] set
+---
+class: middle, hide-count, inverse
 
-  - otherwise classifier ability is systematically overestimated
+# .center[.orange[Break]]
 
-&lt;br&gt;
+(Unordered) tips: 
+- get up
+- stretch
+- look _far away_ (relax your eyes)
+- hydrate
+- go to the bathroom
 
-To interpret machine learning results
+<div class="countdown" id="timer_62900e23" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="3">
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
-  - ask yourself: .orange[did the researchers who trained the model have access to validation data?]
 
-  &gt; .orange[**if so, results could be possibly confounded.**]
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2092,7 +2031,7 @@ foo
 bar
 ]
 ]
-<div class="countdown" id="timer_629004cb" style="bottom:20%;left:70%;" data-audio="true" data-warnwhen="3">
+<div class="countdown" id="timer_62900c61" style="bottom:20%;left:70%;" data-audio="true" data-warnwhen="3">
 <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 

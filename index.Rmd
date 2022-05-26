@@ -1305,6 +1305,43 @@ knitr::include_graphics("img/figure3.png")
 ```
 
 
+---
+# .orange[Overfitting: example]
+
+Two alternative models of human papillomavirus infection and its progression to cervical cancer (CIN) 
+
+The complex model includes multiple stages of pre-cancerous lesions which can progress or regress at different rates (model parameters) 
+
+<br>
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%", fig.cap="Basu 2013"}
+include_graphics("img/Figure_8.png")
+```
+
+
+---
+# .orange[Overfitting ]
+
+Prevalence data of (CIN) generated using more complex model over a 30-year period among a fictional cohort of young women
+
+The complex model (in green) actually has a better .orange[_fit_] to the early prevalence data (solid red dots) than does the simpler model (in blue)...
+
+However, the complex model produced a pattern that poorly forecasts future prevalence (hollow red dots)
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="60%"}
+include_graphics("img/Figure_9.png")
+```
+
+
+---
+# .orange[Overfitting]
+
+Every additional parameter in the model introduces **new sources of uncertainty** and potential to affect results in non-intuitive ways that may either be useful or deceptive
+
+Complex models must be well-characterized in terms of their behavior before they are used for .orange[__forecasting__ ]
+
+
 
 ---
 name: berra
@@ -1365,84 +1402,8 @@ Decision tree       | Splits' locations     | # splits
 Random forest       | Splits' locations     | # splits<br># trees<br># dimension (randomly selected)
 SVM                 | Hyper-plane's position | type of nonlinearity<br>margin<br>overlap
 Logistic regression | $\beta$s              | polynomial degrees<br># nodes for splines<br>interactions
-ANN                 | weights               | # layers<br># neurons/layer<br># training's epochs<br>batch size<br>learning rate
+ANN/DL              | weights               | # layers<br># neurons/layer<br># training's epochs<br>batch size<br>learning rate
   
-  
----
-# .orange[K-fold cross validation]
-  
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
-knitr::include_graphics("img/splits.png")
-```
-
-Generally, .orange[k between 5 and 10] avoids over-training the model (variance), whilst avoiding too few training points (bias)
-
-
----
-#.orange[Cross validation variability]
-  
-  
-  
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
-knitr::include_graphics("img/overfitting.png")
-```
-
-
-
----
-# .orange[Suggestions]
-  
-### Validate (and fine-tune) your Model
-Separate your data into .orange[training], .orange[validation], and .orange[test sets].
-
-> .orange[If you take **ANY** decision after having seen a performance on a data set, it becomes a training one (even if you have treated it as a test)]
-
-### Do not be fooled by Accuracy
-
-For event that only happens 1% of the time,  you can easily report an accuracy of 99%: meaningless.
-
-Before starting a (classification) project, better figure out which precision and recall application (or _metrics_) requires to be useful
-
-> - .orange[Build the model with these metrics on your mind]
-> - .orange[When in doubt use balanced metrics]
-
-
-
----
-# .orange[Overfitting: example ]
-
-Two alternative models of human papillomavirus infection and its progression to cervical cancer (CIN) 
-
-The complex model includes multiple stages of pre-cancerous lesions which can progress or regress at different rates (model parameters) 
-
-<br>
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%", fig.cap="Basu 2013"}
-include_graphics("img/Figure_8.png")
-```
-
-
----
-# .orange[Overfitting ]
-
-Prevalence data of (CIN) generated using more complex model over a 30-year period among a fictional cohort of young women
-
-The complex model (in green) actually has a better .orange[_fit_] to the early prevalence data (solid red dots) than does the simpler model (in blue)...
-
-However, the complex model produced a pattern that poorly forecasts future prevalence (hollow red dots)
-
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="60%"}
-include_graphics("img/Figure_9.png")
-```
-
-
----
-# .orange[Overfitting]
-
-Every additional parameter in the model introduces new sources of uncertainty and potential to affect results in non-intuitive ways that may either be useful or deceptive
-
-Complex models must be well-characterized in terms of their behavior before they are used for .orange[__forecasting__ ]
 
 
 ---
@@ -1450,8 +1411,9 @@ Complex models must be well-characterized in terms of their behavior before they
 
 > How to select an adequate model based on sample data?
 
+<br>
 
-.orange[__Recall__]: model selection chooses a model complexity (hyperparameter)
+__Recall__: model selection **.orange[chooses a model complexity]** (hyper-parameter)
   
   - Training a classifiers chooses parameter values
   
@@ -1466,39 +1428,15 @@ Complex models must be well-characterized in terms of their behavior before they
 
 
 
-
 ---
 # .orange[Cross-validation]
 
 
-> How to select an adequate model based on sample data?
+- train classifiers with .orange[different hyper-parameters] on training data
 
+- compute prediction errors under true distribution
 
-
-.orange[**Recall**]: we use sample data as proxy for actual data source
-   
-  - ask how to select a model if the underlying distribution was known
-
-  - apply sample principle
-
-  - approximate data source by sample data
-
-<br>
-<br>
-
-
-This is called .orange[__cross-validation__ ]
-
----
-# .orange[Cross-validation]
-
-If we knew underlying distribution
-  
-  - train classifiers with .orange[different hyperparameters] on training data
-  
-  - compute prediction errors under true distribution
-  
-  - choose the one with .orange[smallest prediction error]
+- choose the one with .orange[smallest prediction error]
 
 <br>
 
@@ -1508,7 +1446,6 @@ If we knew underlying distribution
 <br>
 
 Approximation of actual data source by sample data
-
 
   -  split training data set
   
@@ -1522,7 +1459,7 @@ Approximation of actual data source by sample data
 ---
 # .orange[Cross-validation]
 
-Data splitting estimates the .orange[predicion error from data]
+Data splitting estimates the .orange[prediction error from data]
 
 <br>
 
@@ -1552,7 +1489,7 @@ Prediction error estimates can be used in two ways
   c. test set (hold out set)
 
 
-2. Train classifiers with .orange[different hyperparameters] on training set
+2. Train classifiers with .orange[different hyper-parameters] on training set
 
 3. Select that with smallest .orange[prediction error on validation set]
 
@@ -1566,27 +1503,6 @@ Prediction error estimates can be used in two ways
 
 
 
-
-
----
-# .orange[Cross validation: how to split the data]
-
-If samples assumed i.i.d., split at random
-
-  - sampling w/o replacement
-  
-<br>
-
-Remaining question: .orange[how large] should be each set be?
-
-
-<br>
-
-Advantages of different choices
-
-  - Large training set $\Leftrightarrow$ .orange[more accurate] classifier
-  
-  - Small training set $\Leftrightarrow$ .orange[reflects variation] between sample sets
 
 
 
@@ -1633,17 +1549,19 @@ include_graphics("img/cv_2.png")
 
 1. Divide remaining data into $K$ .orange[equally sized] blocks
 
-2. Cross-validate: for $k = 1,\ldots, K$
+2. Cross-validate: for $k = 1,\cdots, K$
 
   - remove block $k$ from training data
   
-  - train classifier on remaining bloks.
+  - train classifier on remaining blocks.
   
   - estimate prediction error on block $k$
   
 3. Estimates over all $k$ and select best classifier
 
-4. When classifier is chosen, estimate its performance .orange[on test set]
+4. Retrain the best classifiers (i.e. with its hyper-parameters) on the whole training set (all K sets!)
+
+5. When classifier is chosen and retrained, estimate its performance .orange[on test set]
 
 
 
@@ -1680,79 +1598,260 @@ include_graphics("img/Cv3.png")
 ```
 
 
----
-# .orange[K-fold cross validation: how many folds?]
 
+
+
+---
+# .orange[K-fold cross validation]
+  
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
-include_graphics("img/splits.png")
+knitr::include_graphics("img/splits.png")
 ```
 
 Generally, .orange[k between 5 and 10] avoids over-training the model (variance), whilst avoiding too few training points (bias)
 
 
-
 ---
-# .orange[Bias and Variance trade-off]
-
-In order to minimise test error on new data points, statistical theory (out of the scope of this workshop) tells us that we need to select a function that achieves .orange[*low variance*] and .orange[*low bias*].
-
-
- - .orange[**Variance**] refers to the amount by which our predictions would **change if we estimated using a different training set**. 
-   > The more flexible the model, the higher the variance.
-
- - .orange[**Bias**] refers to the **error that introduced by the approximation** we are making with our model (represent complicated data by a simple model). 
-   > The more simple the model, the higher the bias.
-
-There is a .orange[trade off] between increasing variance (flexibility) and decreasing bias (simplicity) and vice versa.
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="40%"}
-include_graphics("img/tradeoff.png")
+#.orange[Cross validation variability]
+  
+  
+  
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
+knitr::include_graphics("img/overfitting.png")
 ```
 
 
+
 ---
-class: hide-count
-#.orange[Bias variance trade-off]
+# .orange[Suggestions]
+  
+### Validate (and fine-tune) your Model
+Separate your data into .orange[training], .orange[validation], and .orange[test sets].
+
+> .orange[If you take **ANY** decision after having seen a performance on a data set, it becomes a training one (even if you have treated it as a test)]
+
+### Do not be fooled by Accuracy
+
+For event that only happens 1% of the time,  you can easily report an accuracy of 99%: meaningless.
+
+Before starting a (classification) project, better figure out which precision and recall application (or _metrics_) requires to be useful
+
+> - .orange[Build the model with these metrics on your mind]
+> - .orange[When in doubt use balanced metrics]
 
 
-The bias-variance trade-off concerns the generalizability of a trained predictor in light of new data points
 
-If a predictor has high bias and/or high variance, it will not do well in predicting on new data
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="60%"}
-include_graphics("img/BV.png")
+---
+class: inverse, middle, center, hide-count
+
+# Your turn
+
+.left[
+
+- What is the effect of **Increasing** k in a k-fold cross-validation procedure?
+- Which are the **minimum** and **maximum** possible k?
+
+]
+
+```{r, echo = FALSE}
+countdown(minutes = 1, warn_when = 10, play_sound = TRUE,
+          left = "70%", bottom = "15%")
 ```
 
 
-Good, generalizable predictors need to have .orange[both low bias and low variance]
+
+
+---
+class: middle, hide-count, inverse
+
+# .center[.orange[Break]]
+
+(Unordered) tips: 
+- get up
+- stretch
+- look _far away_ (relax your eyes)
+- hydrate
+- go to the bathroom
+
+```{r, echo = FALSE}
+countdown(minutes = 10, warn_when = 3, play_sound = TRUE,
+          left = "65%", bottom = "5%")
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
 ---
-#.orange[Summary]
+class: inverse, middle, center, hide-count
+
+# Can we go _deeper_?
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
+knitr::include_graphics("img/perplesso.jpg")
+```
 
 
 
 
-Cross-validation .orange[selects model] and .orange[assess classifier]
+---
+name: intro-what
+class: inverse, middle, center, hide-count
 
-  - Both require estimate the prediction error
+# Deep Learning
 
+---
+# Neuron
 
-Estimates are obtained from .orange[separate training and test data sets]
-
-
-Assessment must use .orange[separate validation] set
-
-  - otherwise classifier ability is systematically overestimated
+I.e., anything more than old new-fashioned (generalized*) logistic regressions
 
 <br>
 
-To interpret machine learning results
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="70%"}
+knitr::include_graphics("img/neuron.gif")
+```
 
-  - ask yourself: .orange[did the researchers who trained the model have access to validation data?]
+<br>
+<br>
+<br>
 
-  > .orange[**if so, results could be possibly confounded.**]
+\*generalized := any **non-linear**, **differentiable**, $\mathbb{R}^n\to \mathbb{R}$ function.
+
+
+
+
+---
+# Fully connected network 
+
+<img src="img/mlp.png" width="40%"/><img src="img/fc.png" width="25%"/>
+--
+<img src="img/descent.gif" width="30%"/>
+
+<br>
+
+<img src="img/loss.png" width="100%"/>
+
+
+
+
+---
+class: inverse, middle, center, hide-count
+
+# Unstructured data
+
+.left[
+  - Multi-dimensional single-information (e.g., images)
+  - Sequential one-dimension privileged single-information (e.g., text/signals)
+]
+
+
+---
+## Multi-dimensional single-information
+
+### Convolutional networks
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
+knitr::include_graphics("img/convExample.png")
+```
+
+
+---
+# Convolutional networks
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
+knitr::include_graphics("img/conv.jpg")
+```
+
+
+---
+# Convolutional networks
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
+knitr::include_graphics("img/multi-cnn.png")
+```
+
+
+
+
+
+---
+# Convolutional networks
+
+<br><br>
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
+knitr::include_graphics("img/cnn-struct.png")
+```
+
+
+---
+### One-dimension privileged single-information
+
+#### Sequencies (input/output)
+
+<br>
+  
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
+knitr::include_graphics("img/sequences.png")
+```
+
+
+
+---
+# Recurrent networks
+  
+  
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
+knitr::include_graphics("img/rnn-full_CL.png")
+```
+
+
+<small>
+  
+.pull-left[
+  $x^{<t>}$: input position t 
+  
+  $T_x$: length of input
+  
+  $W^{[l]}_{yx}$ :weight matrix used with input x for output y on layer l
+  
+  $b^{[l]}_y$: (bias) vector for output y on layer l
+]
+
+.pull-right[
+  $y^{<t>}$ : output position t 
+  
+  $T_y$: length of output
+  
+  $a^{[l]}_{<t>}$ : activation vector at position t on layer l
+]
+
+
+
+
+---
+# Take them all
+  
+<small><small>
+  
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%", fig.cap="<br><br><br><br><br>Network from https://www.sciencedirect.com/science/article/pii/S0007091219306361 <br>Bradley A. Fritz, et al. 'Deep-learning model for predicting 30-day postoperative mortality' - BJA 2019"}
+knitr::include_graphics("img/multi-dl.jpg")
+```
+
+
+
+
 
 
 
