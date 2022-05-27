@@ -162,10 +162,10 @@ style_duo_accent(
 <br>
 <br>
 <br>
-<br>
 # **.orange[How] Machine .orange[Learning]**<br>and **Artificial .orange[Intelligence]** can<br>**Support Clinical .orange[Decision]**
 
 <br>
+Slide at: https://CorradoLanera.github.io/ws-mlt
 <br>
 
 **Biostatistics Seminaries** - Padova, 2022/05/27 -
@@ -226,7 +226,7 @@ My principal aim is to let you able to start **.orange[understanding]** (and **.
 class: hide-count
 # .orange[Acknowledgement]
 
-The following slides and their contents were produced thanks to the preciuos work of .orange[**Paola Berchialla**]
+The following slides and their contents were produced thanks to the preciuos work of .orange[**Paola Berchialla**] (UniTo/DSCB)
 
 .center[
 ```{r, echo=FALSE, out.width = "50%"}
@@ -236,7 +236,7 @@ knitr::include_graphics(c("img/thankyou-robot.jpg"))
 
 <br><br>
 
-> Special thanks also to .orange[**Cristiana Vettori**] for having supported me in all the administratives related to this presentation.
+> Special thanks also to .orange[**Cristiana Vettori**] (UBEP) for having supported me in all the administratives related to this presentation.
 
 
 ---
