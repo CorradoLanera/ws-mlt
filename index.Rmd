@@ -57,7 +57,6 @@ use_share_again()
 use_panelset()
 use_clipboard()
 use_editable(expires = 1)
-use_freezeframe()
 use_scribble()
 use_extra_styles(
   hover_code_line = TRUE,         #<<
@@ -1583,7 +1582,7 @@ include_graphics("img/Cv1.png")
 This procedure is .orange[repeated K] times; each time, a different group of observations is treated as a validation set.
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="90%"}
 include_graphics("img/Cv2.png")
 ```
 
@@ -1593,7 +1592,7 @@ include_graphics("img/Cv2.png")
 The .orange[CV error rate] is then calculated as the average of these K error rates.
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="90%"}
 include_graphics("img/Cv3.png")
 ```
 
@@ -1704,7 +1703,6 @@ knitr::include_graphics("img/perplesso.jpg")
 
 
 ---
-name: intro-what
 class: inverse, middle, center, hide-count
 
 # Deep Learning
@@ -1716,7 +1714,7 @@ I.e., anything more than old new-fashioned (generalized*) logistic regressions
 
 <br>
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="70%"}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="60%"}
 knitr::include_graphics("img/neuron.gif")
 ```
 
@@ -1724,7 +1722,7 @@ knitr::include_graphics("img/neuron.gif")
 <br>
 <br>
 
-\*generalized := any **non-linear**, **differentiable**, $\mathbb{R}^n\to \mathbb{R}$ function.
+\*generalized := activation/link is any **non-linear**, **differentiable**, $\mathbb{R}^n\to \mathbb{R}$ function.
 
 
 
@@ -1732,9 +1730,7 @@ knitr::include_graphics("img/neuron.gif")
 ---
 # Fully connected network 
 
-<img src="img/mlp.png" width="40%"/><img src="img/fc.png" width="25%"/>
---
-<img src="img/descent.gif" width="30%"/>
+<img src="img/mlp.png" width="40%"/><img src="img/fc.png" width="25%"/><img src="img/descent.gif" width="30%"/>
 
 <br>
 
@@ -1749,8 +1745,8 @@ class: inverse, middle, center, hide-count
 # Unstructured data
 
 .left[
-  - Multi-dimensional single-information (e.g., images)
-  - Sequential one-dimension privileged single-information (e.g., text/signals)
+- Multi-dimensional single-information (e.g., images)
+- Sequential one-dimension privileged single-information (e.g., text/signals)
 ]
 
 
@@ -1837,7 +1833,7 @@ knitr::include_graphics("img/rnn-full_CL.png")
   $a^{[l]}_{<t>}$ : activation vector at position t on layer l
 ]
 
-
+</small>
 
 
 ---
@@ -1848,6 +1844,7 @@ knitr::include_graphics("img/rnn-full_CL.png")
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%", fig.cap="<br><br><br><br><br>Network from https://www.sciencedirect.com/science/article/pii/S0007091219306361 <br>Bradley A. Fritz, et al. 'Deep-learning model for predicting 30-day postoperative mortality' - BJA 2019"}
 knitr::include_graphics("img/multi-dl.jpg")
 ```
+</small></small>
 
 
 
@@ -1869,18 +1866,6 @@ class: inverse, middle, center, hide-count
 # .orange[A tour of Machine Learning algorithms<br>in healthcare]
 
 
-
-
-
-
----
-# .orange[ML algorithms]
-
-Hundreds new algorithms every year
-
-More than 100 Wikipedia pages on specific ML algorithms
-
-> many of them are variation on a few major classes
 
 ---
 # .orange[Classifier]
@@ -1919,7 +1904,7 @@ $$\ln\left(\frac{p}{1-p} \right) = \beta_0 + \beta_1 X_1 + \ldots + \beta_p X_p$
 
 
 ---
-# .orange[Classifiers: Support Vector Machine]
+# .orange[Classifiers: Support-Vector Machine]
 
 .orange[**SVM**] is a linear classifier with a twist
 
@@ -1948,18 +1933,12 @@ For each of these paths, a new question is considered
 
 At the end of each series of questions the patient falls into either a .orange[heart failure] or a .orange[not heart failure] diagnosis (bucket)
 
----
-class: hide-count
-# .orange[Classifiers: decision trees]
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
-include_graphics("img/figure_6.png")
-```
 
 ---
 # .orange[Classifiers: random forest]
 
 Improves upon decision trees by dividing the input data into .orange[many different subsets] and creating a different decision tree for each of them
+
   - All of the different resulting decision trees then .orange[vote] to determine the final classification of the input
 
 <br>
@@ -1970,16 +1949,10 @@ Reduces the risk of making the final buckets too small and subsequently being fo
 
 
 ---
-# .orange[Classifiers: Neural Networks] 
+## .orange[Classifiers: Neural Networks] 
 
-(Naive) .orange[__definition:__] An Artificial Neural Network is an information processing paradigm that is inspired by the way biological nervous systems process information:
+(Naive) .orange[__definition:__] A large (huge...) number of highly interconnected simple processing elements (neurons) working together to solve specific problems.
 
-  - A large number of highly interconnected simple processing elements (neurons) working together to solve specific problems
-
-
-
----
-# .orange[Classifiers: Neural Networks] 
 
 .pull-left[
 
@@ -1987,25 +1960,25 @@ Reduces the risk of making the final buckets too small and subsequently being fo
 - one or more .orange[hidden layers]
 - an .orange[output layer]
 
-<br>
 
 - Each internal node receives inputs from other units
 - A weight $w$ is associated to each input
 - The unit computes a function of the weighted sum of its inputs
 - Outputs are compared with target to compute the value of some predefined error function
 - The error is feedback through the network
-  - the algorithm adjust the weights of each connection to reduce the value of the error function
+- the algorithm adjust the weights of each connection to reduce the value of the error function
 ]
 
 
 .pull-right[
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="70%"}
-include_graphics("img/nn_1.png")
+include_graphics("img/nn_2.png")
 ```
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="70%"}
-include_graphics("img/nn_2.png")
+include_graphics("img/nn_1.png")
 ```
+
 ]
 
 
@@ -2018,61 +1991,23 @@ Can the data be grouped into natural categories or buckets?
 
 .orange[_Are there natural groupings that can help me understand my patients?_]
 
+<br>
 
----
-# .orange[Clustering: Unsupervised]
-
-  - Can automatically identify naturally occurring groups of similar items
+- Can automatically identify naturally occurring groups of similar items
   
-  > E.g., .orange[K-Means]: the algorithm is given a set of attributes and a number of clusters to create
+> E.g., .orange[K-Means]: the algorithm is given a set of attributes and a number of clusters to create
 
-  - the algorithm works out which combinations of attributes most accurately divide the items into that number of groups 
+- the algorithm works out which combinations of attributes most accurately divide the items into that number of groups 
 
-  - attributes: for example, diagnoses and lab measurements
+- attributes: for example, diagnoses and lab measurements
 
 
 <br>
-<br>
 
- > resulting _clusters_ are .orange[interpreted by humans] by looking at
+> resulting _clusters_ are .orange[interpreted by humans] by looking at
 which attributes are most important in the cluster
 
 
-
----
-# .orange[Clustering: Hierarchical]
-
-
-Creates a tree or dendogram of clustering scenarios for data
-
-  - starts creating a single cluster containing all the items
-
-  - splits into two clusters, each of which further splits into two clusters, $\ldots$  until each cluster contains only a single item. 
-
-  - the process can be stopped at any point to create meaningful clusters
-
-
-
----
-# .orange[Clustering: examples]
-
-
-.orange[__Risk adjustement__]
-
-  - when calculating the impacts of different treatments, the baseline level of illness for each patient needs to be computed to create a consistent baseline for comparison of methods across all patients 
-
-  - Clustering can be used to group patients into meaningful groups of similar comorbidities or risks
-
-<br>
-<br>
-
-.orange[__Patients like mine__]
-
-  - In the care of complex or rare disease, understanding how different treatments have worked on other patients in similar situations
-
-  - Identifyimg subtype of disease
-
-  - Clustering can be very useful to identify the most similar patients.
 
 
 
@@ -2088,7 +2023,7 @@ Creates a tree or dendogram of clustering scenarios for data
 
 ---
 class: inverse, middle, center, hide-count
-# .orange[ Best practices for implementing<br>Machine Learning]
+# .orange[Best practices for implementing<br>Machine Learning]
 
 
 
@@ -2147,7 +2082,7 @@ Data is more important than the exact algorithm you use
 
 <br>
   
-  > .orange[start with SVM or RF (or even with simple linear regression!)]
+> .orange[start with SVM or RF (or even with simple linear regression!)]
 
 
 
@@ -2164,9 +2099,9 @@ Data is more important than the exact algorithm you use
 
 
 <br>
-  <br>
+<br>
   
-  .orange[Normalize] input data 
+.orange[Normalize] input data 
 
 - ML algorithms can perform .orange[poorly and slowly] if there are large differences in scale between different features
 
@@ -2175,21 +2110,21 @@ Data is more important than the exact algorithm you use
 ---
 # .orange[Validate your Model]
   
-  Separate your data into .orange[training, validation, and test sets]
+Separate your data into .orange[training, validation, and test sets]
 
 - if you are using K-fold cross validation, at least hold out a test set 
 
 <br>
-  <br>
-  <br>
+<br>
+<br>
   
-  > .orange[If you take ANY decision after having seen a performance on a data set, it becomes a training one (even if you have treated it as a test)]
+> .orange[If you take ANY decision after having seen a performance on a data set, it becomes a training one (even if you have treated it as a test)]
 
 
 ---
-# .orange[Healthcare does not trust black boxes]
+## .orange[Healthcare does not trust black boxes]
   
-  Some ML methods are more transparent than others    
+Some ML methods are more transparent than others    
 
 - Clustering, tend to be easy to interpret, because they create groupings of concepts      
 
@@ -2198,131 +2133,40 @@ Data is more important than the exact algorithm you use
 
 <br>
   
-  Random forests are .orange[difficult to interpret]. 
+Random forests are .orange[difficult to interpret]. 
 
 Neural networks, deep learning are .orange[truly black boxes]
 
-- very little transparency to what is important in the decision making process
+- very little transparency (very high effort to obtain it) to what is important in the decision making process
 
 
 
 ---
 # .orange[Monitoring ongoing performance & keep track of model changes] 
   
-  Check your results against incoming new data 
+Check your results against incoming new data 
 
 - monitor data and algorithm statistics with a dashboard
 
 <br>
   
-  .orange[Track the revision of your model] along with data analytics pipeline
+.orange[Track the revision of your model] along with data analytics pipeline
 
 
 
 ---
 # .orange[Do not be fooled by Accuracy]
   
-  While looking for a rare event that only happens 1% of the time,  you can report your accuracy as 99% 
+While looking for a rare event that only happens 1% of the time,  you can report your accuracy as 99% 
   
-  - meaningless 
+- meaningless 
 
 <br>
   
-  Before starting a project, better figure out which precision and recall application requires to be useful
+Before starting a project, better figure out which precision and recall application requires to be useful
 
 > - .orange[Build the model with these metrics on your mind]
 > - .orange[Use balanced metrics]
-
-
----
-class: inverse, center, middle, hide-count
-# Thanks!
-# `r anicon::faa('thumbs-up', animate='float', size=5)`
-
-<br>
-  
-  .right[
-    [`r anicon::faa("envelope", animate = "passing")`](mailto:corrado.lanera@ubep.unipd.it) [corrado.lanera@ubep.unipd.it](mailto:corrado.lanera@ubep.unipd.it)
-    
-    [`r anicon::faa("calendar-check")`](https://calendly.com/corradolanera) [calendly.com/corradolanera](https://calendly.com/corradolanera)
-    
-  ]
-
-
-
-
-
-
----
-class: hide-count
-# .orange[Outline **.orange[A]**]
-
-- Topic **one**
-
-- Second **topic**
-
-- Another **interesting** topic
-
-
-
-
----
-class: inverse, middle, center, hide-count
-# .orange[Topic **one**]
- 
-
----
-# Foo
-
-
----
-class: inverse, middle, center, hide-count
-# .orange[Second **topic**]
- 
-
----
-# Bar
-
-
-
----
-class: inverse, middle, center, hide-count
-# .orange[Another **interesting** topic]
- 
- 
----
-# Tar
-
-
-
-
-
-
-
-
-
-
-.panelset[
-.panel[.panel-name[XXXXX]
-foo
-]
-.panel[.panel-name[XXXXX]
-bar
-]
-]
-```{r, echo = FALSE}
-countdown(minutes = 15, warn_when = 3, play_sound = TRUE,
-          left = "70%", bottom = "20%")
-```
-
-
-
-```{r, echo=FALSE, out.width="80%", fig.cap="https://www.unipd-ubep.it/"}
-
-knitr::include_graphics("img/UBEP.png")
-
-```
-
 
 
 
@@ -2337,7 +2181,7 @@ knitr::include_graphics("img/UBEP.png")
 
 ---
 class: inverse
-# Risorse utili
+# Resources
 
 
 
@@ -2370,9 +2214,8 @@ _If you think the only acceptable performance is the ".orange[perfect performanc
 
 
 <br>
-<br>
 
-Slides: <SLIDES' URL>
+Slides: https://CorradoLanera.github.io/ws-mlt
 
 
 [`r fontawesome::fa("link")`](https://www.unipd-ubep.it/) [**www.unipd-ubep.it**](https://www.unipd-ubep.it/) | 
