@@ -161,11 +161,11 @@ style_duo_accent(
 
 <br>
 <br>
-<br>
 # **.orange[How] Machine .orange[Learning]**<br>and **Artificial .orange[Intelligence]** can<br>**Support Clinical .orange[Decision]**
 
 <br>
 Slide at: https://CorradoLanera.github.io/ws-mlt
+<br>
 <br>
 
 **Biostatistics Seminaries** - Padova, 2022/05/27 -
