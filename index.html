@@ -16,7 +16,7 @@
     <link href="index_files/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
     <script src="index_files/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
     <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x262ada7a84046d9abe22ccddeec5416","expires":1}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"bf0c66ca876340509fc0cd0585eb9be4","expires":1}</script>
     <script src="index_files/himalaya-1.1.0/himalaya.js"></script>
     <script src="index_files/js-cookie-3.0.0/js.cookie.js"></script>
     <link href="index_files/editable-0.2.6/editable.css" rel="stylesheet" />
@@ -204,11 +204,19 @@ pmlt_path |&gt;
 class: inverse, hide-count
 # What we are going to see
 
-Purpose of this seminary is to introducing .orange[what is] Machine Learning, why/in what is different from other (statistical) tools, how to understand (and .orange[trust]!) it's results, and looking at .orange[some example] and .orange[best practice] in conducing a machine learning project.
+Purpose of this seminary is to introducing **.orange[what is]** Machine Learning, why/in what is different from other (statistical) tools, how to understand (and **.orange[trust]**!) it's results, and looking at **.orange[some example]** and **.orange[best practice]** in conducing a machine learning project.
 
-My principal aim is to let you able to .orange[understand] (and .orange[evaluate] the quality!) of a machine learning project when used for clinical purposes.
+&lt;br&gt;
+&lt;br&gt;
 
-Spoiler: I do not show you any (other) R code... hopefully.
+My principal aim is to let you able to start **.orange[understanding]** (and **.orange[evaluating]** the quality!) of a machine learning project when used for clinical purposes.
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+**.orange[Promise]: I do not show you any (other) R code 😇**
 
 
 ---
@@ -260,7 +268,7 @@ class: inverse, middle
 
 - .orange[**Neural Networks**] and .orange[**Deep Learning**]
 
-- A tour of Machine Learning .orange[**algorithms**] in healthcare
+- A Machine Learning .orange[**usecase**] project in healthcare
 
 - .orange[**Best practices**] for implementing Machine Learning
 
@@ -568,7 +576,7 @@ class: middle, hide-count, inverse
 - hydrate
 - go to the bathroom
 
-<div class="countdown" id="timer_62901b4a" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="3">
+<div class="countdown" id="timer_62902ff5" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="3">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -597,27 +605,52 @@ class: middle center hide-count
 &lt;img src="img/food.jpg" width="100%" style="display: block; margin: auto;" /&gt;
 
 
+---
+# .orange[Classification]
+
+Does data belong to class A? .orange[_is this really a heart failure patient?_]
+
+&lt;br&gt;
+
+Classifiers are the most commonly used ML algorithms in analytics applications
+
+
+  -  Suggest possible patient diagnoses
+
+  - Identify patients with high readmission risk
+
+  - Automatically alert care providers early in the development of sepsis
+
+  - Define the threshods for _abnormal_ lab results
+
+  - Automatically differentiate between clinical and administrative documents
+
+  - Recommend the most effective wellness or disease management intervention for a patient
+
+  -  many, many more...
+
+
 
 ---
 # .orange[Classification]
   
 .left-code[
-  __Feature space__
-  
-  - data: points in `\(\mathbb{R}^d\)`
-    
-    - dimensions:  scalar measurements
-  
-  &lt;br&gt;
-    
-    __Classifier functions (_classifiers_)__
-  
-  - a classifier for `\(K\)` classes is a function
-  
-  $$
-    f:\mathbb{R}^d \to \{1, \ldots, K \}   
-  $$
-    - classifiers carve up the space into regions
+__Feature space__
+
+- data: points in `\(\mathbb{R}^d\)`
+
+- dimensions:  scalar measurements
+
+&lt;br&gt;
+
+__Classifier functions (_classifiers_)__
+
+- a classifier for `\(K\)` classes is a function
+
+$$
+f:\mathbb{R}^d \to \{1, \ldots, K \}   
+$$
+- classifiers carve up the space into regions
 ]
 
 .right-plot[
@@ -717,7 +750,7 @@ How can we __train__ a model using a nearest neighbor MLT?
 (i.e. what can be the _experience_?)
 ]
 
-<div class="countdown" id="timer_62901a21" style="bottom:20%;left:70%;" data-audio="true" data-warnwhen="10">
+<div class="countdown" id="timer_62902fc0" style="bottom:20%;left:70%;" data-audio="true" data-warnwhen="10">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -753,7 +786,7 @@ How can we __train__ a model using a k-nearest neighbor MLT?
 (i.e. what can be the _experience_?)
 ]
 
-<div class="countdown" id="timer_62901a1e" style="bottom:20%;left:70%;" data-audio="true" data-warnwhen="10">
+<div class="countdown" id="timer_62902f6c" style="bottom:20%;left:70%;" data-audio="true" data-warnwhen="10">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -768,7 +801,7 @@ class: inverse, middle, center, hide-count
 Which are the **minimum** and **maximum** possible k?
 ]
 
-<div class="countdown" id="timer_62901ad9" style="bottom:20%;left:70%;" data-audio="true" data-warnwhen="10">
+<div class="countdown" id="timer_62902ff3" style="bottom:20%;left:70%;" data-audio="true" data-warnwhen="10">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -957,7 +990,7 @@ C = 0 is "no violation admitted".
 **Increasing** C, we provide **.orange[more or less] flexibility** to the model?
 ]
 
-<div class="countdown" id="timer_62901d49" style="bottom:20%;left:70%;" data-audio="true" data-warnwhen="10">
+<div class="countdown" id="timer_629032e2" style="bottom:20%;left:70%;" data-audio="true" data-warnwhen="10">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1145,7 +1178,7 @@ The **ntree** parameter of RF MLTs determines how many trees there are in the fo
 
 ]
 
-<div class="countdown" id="timer_62901ae5" style="bottom:15%;left:70%;" data-audio="true" data-warnwhen="10">
+<div class="countdown" id="timer_6290312d" style="bottom:15%;left:70%;" data-audio="true" data-warnwhen="10">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1164,7 +1197,7 @@ class: middle, hide-count, inverse
 - hydrate
 - go to the bathroom
 
-<div class="countdown" id="timer_62901c87" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="3">
+<div class="countdown" id="timer_62903283" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="3">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1327,57 +1360,6 @@ __Recall__: model selection **.orange[chooses a model complexity]** (hyper-param
 
   - it would lead to overfitting
 
-
-
----
-# .orange[Cross-validation]
-
-
-- train classifiers with .orange[different hyper-parameters] on training data
-
-- compute prediction errors under true distribution
-
-- choose the one with .orange[smallest prediction error]
-
-&lt;br&gt;
-
-
-.orange[Separating model selection and training] prevents overfitting
-
-&lt;br&gt;
-
-Approximation of actual data source by sample data
-
-  -  split training data set
-  
-  -  train on set 1
-  
-  -  test predictive performance on set 2
-
-
-
-
----
-# .orange[Cross-validation]
-
-Data splitting estimates the .orange[prediction error from data]
-
-&lt;br&gt;
-
-Prediction error estimates can be used in two ways
-
-  - model selection `\(\Leftrightarrow\)` .orange[optimize] performance
-
-  - classifier assessment `\(\Leftrightarrow\)` .orange[interpret] performance (estimates the prediction error of the final choice of classifier)
-
-
-&lt;br&gt;
-&lt;br&gt;
-
-
-.orange[We must not use the] .red[same data for both]
-
-
 ---
 # .orange[Cross-validation]
 
@@ -1401,6 +1383,29 @@ Prediction error estimates can be used in two ways
 .orange[Separate test set is crucial]:
 
   - prediction error estimate on validation set is confounded by model selection
+
+
+
+---
+# .orange[Cross-validation]
+
+Data splitting estimates the .orange[prediction error from data]
+
+&lt;br&gt;
+
+Prediction error estimates can be used in two ways
+
+  - model selection `\(\Leftrightarrow\)` .orange[optimize] performance
+
+  - classifier assessment `\(\Leftrightarrow\)` .orange[interpret] performance (estimates the prediction error of the final choice of classifier)
+
+
+&lt;br&gt;
+&lt;br&gt;
+
+
+.orange[We must not use the] .red[same data for both]
+
 
 
 
@@ -1509,23 +1514,6 @@ Generally, .orange[k between 5 and 10] avoids over-training the model (variance)
 
 
 
----
-# .orange[Suggestions]
-  
-### Validate (and fine-tune) your Model
-Separate your data into .orange[training], .orange[validation], and .orange[test sets].
-
-&gt; .orange[If you take **ANY** decision after having seen a performance on a data set, it becomes a training one (even if you have treated it as a test)]
-
-### Do not be fooled by Accuracy
-
-For event that only happens 1% of the time,  you can easily report an accuracy of 99%: meaningless.
-
-Before starting a (classification) project, better figure out which precision and recall application (or _metrics_) requires to be useful
-
-&gt; - .orange[Build the model with these metrics on your mind]
-&gt; - .orange[When in doubt use balanced metrics]
-
 
 
 
@@ -1541,10 +1529,20 @@ class: inverse, middle, center, hide-count
 
 ]
 
-<div class="countdown" id="timer_62901a45" style="bottom:15%;left:70%;" data-audio="true" data-warnwhen="10">
+<div class="countdown" id="timer_629032ee" style="bottom:15%;left:70%;" data-audio="true" data-warnwhen="10">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
+
+
+
+
+---
+class: inverse, middle, center, hide-count
+
+# Ready to go _deeper_?
+
+&lt;img src="img/perplesso.jpg" width="100%" style="display: block; margin: auto;" /&gt;
 
 
 
@@ -1560,7 +1558,7 @@ class: middle, hide-count, inverse
 - hydrate
 - go to the bathroom
 
-<div class="countdown" id="timer_62901a29" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="3">
+<div class="countdown" id="timer_6290327b" style="bottom:5%;left:65%;" data-audio="true" data-warnwhen="3">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1569,19 +1567,6 @@ class: middle, hide-count, inverse
 
 
 
-
-
-
-
-
-
-
----
-class: inverse, middle, center, hide-count
-
-# Can we go _deeper_?
-
-&lt;img src="img/perplesso.jpg" width="100%" style="display: block; margin: auto;" /&gt;
 
 
 
@@ -1617,6 +1602,12 @@ I.e., anything more than old new-fashioned (generalized*) logistic regressions
 &lt;br&gt;
 
 &lt;img src="img/loss.png" width="100%"/&gt;
+
+
+
+---
+### Can we try to write it down?
+3 input; 2 hidden layer w/ 2 neurons each; 1 (sigmoid) output 
 
 
 
@@ -1734,146 +1725,73 @@ class: inverse, middle, center, hide-count
 
 ---
 class: inverse, middle, center, hide-count
-# .orange[A tour of Machine Learning algorithms&lt;br&gt;in healthcare]
+# .orange[A Machine Learning usecase project&lt;br&gt;in healthcare]
+
 
 
 
 ---
-# .orange[Classifier]
+class: inverse, center, middle, hide-count
+# **Case Study:&lt;br&gt;&lt;br&gt;.orange[Expanding] PubMed .orange[searches] &lt;br&gt;.orange[to] ClinicalTrials.gov**
 
-Does data belong to class A? .orange[_is this really a heart failure patient?_]
+
+---
+# SRs on .orange[Clinical Trials]
+
+Clinical trial registries are under-utilized:
+
+- No hierarchical branching structure
+- Text search is based on few fields
+- Cannot use queries’ combination
+.right[Jones et al 2014, https://doi.org/10.1186/2046-4053-3-126]
+
 
 &lt;br&gt;
 
-Classifiers are the most commonly used ML algorithms in analytics applications
+.orange[Baudart et al] 2017 (https://doi.org/10.1136/bmj.j448) reanalyzed 14 Systematic reviews and Meta-analyses*, searching not only through standard databases but also in clinical trial registries:
+
+- Increase of patients .orange[from 10% to 50%]
+- Change in statistics .orange[up to 29%]
+
+&gt; **~[1.5, 2] years of work for two researchers**:
+&gt;
+&gt;  - from: 2015/03/16 (first search)
+&gt;  - to: [2016/08/11 (first submission), 2017/01/17 (last revision)]
 
 
-  -  Suggest possible patient diagnoses
-
-  - Identify patients with high readmission risk
-
-  - Automatically alert care providers early in the development of sepsis
-
-  - Define the threshods for _abnormal_ lab results
-
-  - Automatically differentiate between clinical and administrative documents
-
-  - Recommend the most effective wellness or disease management intervention for a patient
-
-  -  many, many more...
-
----
-# .orange[Classifiers: logistic regression]
-
-
-.orange[__Logistic regression__] is the workhorse of classifers
-
-
-  - it uses a single, straight cut to divide the world of possible features into two groups
-    
-`$$\ln\left(\frac{p}{1-p} \right) = \beta_0 + \beta_1 X_1 + \ldots + \beta_p X_p$$`
+&lt;small&gt;* All the (RCTs) assessing pharmaceutical treatments published between June 2014 and January 2015 that did not report a trial registry search.
 
 
 ---
-# .orange[Classifiers: Support-Vector Machine]
+### Method
 
-.orange[**SVM**] is a linear classifier with a twist
-
-The world of possible features is split by a single line as in logistic regression, but .orange[this line can be curved]. 
-
-This additional flexibility makes SVM highly adaptable
-
-&gt; Because of the way the curvature is introduced (though a _kernel_), SVM are still .orange[simple to compute and interpret].
+**Learning**: .orange[Passive Supervised]  --  **Task**: Classification (.orange[many-to-one])
 
 
----
-# .orange[Classifiers: decision trees]
+**Training set**: PubMed (294 positives and 7,200 negative records overall)
 
-Family of algorithms, all based on the idea of creating a tree of decisions about features that lead to a specific classification
+**Test**: ClinicalTrials.gov (233,609 records, 2017/01/05 snapshot)
 
-  - Is ejection fraction above or below 50?
-  
-  - to identify heart failure, the algorithm may start with ejection fraction 
+### Results
 
-
-For each of these paths, a new question is considered
-
-  - does the echocardiogram show Left Ventricle Hypertrophy?
-
-&lt;br&gt;
-
-At the end of each series of questions the patient falls into either a .orange[heart failure] or a .orange[not heart failure] diagnosis (bucket)
+**Model left out 1 of 133 human-detected** positive citations .orange[from 233,609 trials] in ClinicalTrials.gov
 
 
----
-# .orange[Classifiers: random forest]
-
-Improves upon decision trees by dividing the input data into .orange[many different subsets] and creating a different decision tree for each of them
-
-  - All of the different resulting decision trees then .orange[vote] to determine the final classification of the input
-
-&lt;br&gt;
-
-Reduces the risk of making the final buckets too small and subsequently being fooled by random variations in the original labeled training data
+Total number of records from our automated search (**predicted positives**) was .orange[lower than] the number of records from .orange[the manual search] in half the cases (with a mean of 472 and a maximum of 2119 records compared with 572 and 2680, respectively, retrieved by Baudard et al).
 
 
+The ability to **distinguish on-topic** from off-topic articles ranged from an area under the receiver operator characteristic curve .orange[(AUC-ROC) of 93.4% to 99.9%].
 
 
----
-## .orange[Classifiers: Neural Networks] 
-
-(Naive) .orange[__definition:__] A large (huge...) number of highly interconnected simple processing elements (neurons) working together to solve specific problems.
-
-
-.pull-left[
-
-- an .orange[input layer] of neurons
-- one or more .orange[hidden layers]
-- an .orange[output layer]
-
-
-- Each internal node receives inputs from other units
-- A weight `\(w\)` is associated to each input
-- The unit computes a function of the weighted sum of its inputs
-- Outputs are compared with target to compute the value of some predefined error function
-- The error is feedback through the network
-- the algorithm adjust the weights of each connection to reduce the value of the error function
+&lt;small&gt;.right[
+— Lanera C. et al 2018&lt;br&gt; https://doi.org/10.1016/j.jclinepi.2018.06.015
 ]
 
 
-.pull-right[
-&lt;img src="img/nn_2.png" width="70%" style="display: block; margin: auto;" /&gt;
-
-&lt;img src="img/nn_1.png" width="70%" style="display: block; margin: auto;" /&gt;
-
-]
-
-
-
-
 ---
-# .orange[Clustering]
+#### **Flowchart**
 
-Can the data be grouped into natural categories or buckets?
-
-.orange[_Are there natural groupings that can help me understand my patients?_]
-
-&lt;br&gt;
-
-- Can automatically identify naturally occurring groups of similar items
-  
-&gt; E.g., .orange[K-Means]: the algorithm is given a set of attributes and a number of clusters to create
-
-- the algorithm works out which combinations of attributes most accurately divide the items into that number of groups 
-
-- attributes: for example, diagnoses and lab measurements
-
-
-&lt;br&gt;
-
-&gt; resulting _clusters_ are .orange[interpreted by humans] by looking at
-which attributes are most important in the cluster
-
+&lt;img src="img/costumer.jpg" width="100%"&gt;
 
 
 
@@ -1896,96 +1814,49 @@ class: inverse, middle, center, hide-count
 
 
 
----
-# .orange[Ask a Specific Question]
-
-ML algorithm should answer a .orange[very specific question]
-
-The best first question is something already known to have a reference and some intuition to compare results with
-
-
-
 
 ---
-# .orange[Start simple]
+## .orange[Start quickly and simple; **next iterate**!]
 
-.orange[Keep it simple] both for model selection and data for your analysis
-
-  - start with the minimal set of data that could get you to a good result
-
-
-&lt;br&gt;
+Keep .orange[robustness]
+- less model complexity and fewer parameters are always beneficial 
 
 
-.orange[Keep robustness]
-
-  - less model complexity and fewer parameters are always beneficial 
-
-
-&lt;br&gt;
-
-&gt; .orange[Start quickly and simple, and next iterate!]
+Keep it .orange[simple] both for model selection and data for your analysis
+- start with the minimal set of data that could get you to a good result
 
 
 
----
-# .orange[Try Many Algorithms]
-
-Try a few different algorithms to see how they work
-
-
-If one classifier works incredibly well and another doesn't seem to work well at all, .orange[be cautious]
-
-- maybe overfitting situation, not really have much predictive power 
-
-
-.orange[Combine methods]
-
-The better your features, the better your performance will be
-
-Data is more important than the exact algorithm you use  
-
-- more training data is always desirable. 
-
-&lt;br&gt;
+## .orange[Treat data with suspicious]
   
-&gt; .orange[start with SVM or RF (or even with simple linear regression!)]
-
-
-
----
-# .orange[Treat data with suspicious]
-  
-  Look at the data 
-
+.orange[Look] at the data 
 - dig into its details 
-
 - look for correlations
+- systematic biases, errors, and flaw
 
-- systematic biases, errors, and flaws
-
-
-&lt;br&gt;
-&lt;br&gt;
-  
 .orange[Normalize] input data 
-
 - ML algorithms can perform .orange[poorly and slowly] if there are large differences in scale between different features
 
 
 
 ---
-# .orange[Validate your Model]
-  
-Separate your data into .orange[training, validation, and test sets]
+## Validate (and fine-tune) your Model
+Separate your data into .orange[training], .orange[validation], and .orange[test sets].
 
-- if you are using K-fold cross validation, at least hold out a test set 
+&gt; .orange[If you take **ANY** decision after having seen a performance on a data set, it becomes a training one (even if you have treated it as a test)]
 
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-  
-&gt; .orange[If you take ANY decision after having seen a performance on a data set, it becomes a training one (even if you have treated it as a test)]
+## Do not be fooled by Accuracy
+
+For event that only happens 1% of the time,  you can easily report an accuracy of 99%: meaningless.
+
+Before starting a (classification) project, better figure out which precision and recall application (or _metrics_) requires to be useful
+
+&gt; - .orange[Build the model with these metrics on your mind]
+&gt; - .orange[When in doubt use balanced metrics]
+
+
+
+
 
 
 ---
@@ -1997,58 +1868,16 @@ Some ML methods are more transparent than others
 
 - Linear regression can tell how important each feature is to the final output 
 
+- Same for decision trees, but they are easily prone to overfitting! 
+
 
 &lt;br&gt;
   
-Random forests are .orange[difficult to interpret]. 
+Random forests are .orange[difficult to interpret].
 
-Neural networks, deep learning are .orange[truly black boxes]
-
-- very little transparency (very high effort to obtain it) to what is important in the decision making process
+Neural networks and deep learning are .orange[truly black boxes], i.e., very little transparency to what is important in the decision making process (or very high effort to obtain it).
 
 
-
----
-# .orange[Monitoring ongoing performance &amp; keep track of model changes] 
-  
-Check your results against incoming new data 
-
-- monitor data and algorithm statistics with a dashboard
-
-&lt;br&gt;
-  
-.orange[Track the revision of your model] along with data analytics pipeline
-
-
-
----
-# .orange[Do not be fooled by Accuracy]
-  
-While looking for a rare event that only happens 1% of the time,  you can report your accuracy as 99% 
-  
-- meaningless 
-
-&lt;br&gt;
-  
-Before starting a project, better figure out which precision and recall application requires to be useful
-
-&gt; - .orange[Build the model with these metrics on your mind]
-&gt; - .orange[Use balanced metrics]
-
-
-
-
-
-
-
-
-
-
-
-
----
-class: inverse
-# Resources
 
 
 
@@ -2066,15 +1895,8 @@ class: inverse
 class: inverse, center, middle, hide-count
 
 
-.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
-.left[
-_If you think the only acceptable performance is the ".orange[perfect performance]",&lt;br&gt;AI is not for you!&lt;br&gt;But, I've heard that even humans have made mistakes..._
-]
+&lt;img src="img/procione.jpeg" width="50%" /&gt;
 
-.tr[
-— Daniel Oberski&lt;br&gt;2021/03/26 ASReview interview&lt;br&gt;https://daob.nl/
-]
-]
 
 &lt;br&gt;
 # Thank .orange[you] for the attention!
@@ -2082,7 +1904,7 @@ _If you think the only acceptable performance is the ".orange[perfect performanc
 
 &lt;br&gt;
 
-Slides: &lt;SLIDES' URL&gt;
+Slides: https://CorradoLanera.github.io/ws-mlt
 
 
 [<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg>](https://www.unipd-ubep.it/) [**www.unipd-ubep.it**](https://www.unipd-ubep.it/) | 

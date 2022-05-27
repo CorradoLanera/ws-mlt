@@ -207,11 +207,19 @@ pmlt_path |>
 class: inverse, hide-count
 # What we are going to see
 
-Purpose of this seminary is to introducing .orange[what is] Machine Learning, why/in what is different from other (statistical) tools, how to understand (and .orange[trust]!) it's results, and looking at .orange[some example] and .orange[best practice] in conducing a machine learning project.
+Purpose of this seminary is to introducing **.orange[what is]** Machine Learning, why/in what is different from other (statistical) tools, how to understand (and **.orange[trust]**!) it's results, and looking at **.orange[some example]** and **.orange[best practice]** in conducing a machine learning project.
 
-My principal aim is to let you able to .orange[understand] (and .orange[evaluate] the quality!) of a machine learning project when used for clinical purposes.
+<br>
+<br>
 
-Spoiler: I do not show you any (other) R code... hopefully.
+My principal aim is to let you able to start **.orange[understanding]** (and **.orange[evaluating]** the quality!) of a machine learning project when used for clinical purposes.
+
+<br>
+<br>
+<br>
+<br>
+
+**.orange[Promise]: I do not show you any (other) R code `r emo::ji("halo")`**
 
 
 ---
@@ -267,7 +275,7 @@ class: inverse, middle
 
 - .orange[**Neural Networks**] and .orange[**Deep Learning**]
 
-- A tour of Machine Learning .orange[**algorithms**] in healthcare
+- A Machine Learning .orange[**usecase**] project in healthcare
 
 - .orange[**Best practices**] for implementing Machine Learning
 
@@ -619,27 +627,52 @@ include_graphics("img/food.jpg")
 ```
 
 
+---
+# .orange[Classification]
+
+Does data belong to class A? .orange[_is this really a heart failure patient?_]
+
+<br>
+
+Classifiers are the most commonly used ML algorithms in analytics applications
+
+
+  -  Suggest possible patient diagnoses
+
+  - Identify patients with high readmission risk
+
+  - Automatically alert care providers early in the development of sepsis
+
+  - Define the threshods for _abnormal_ lab results
+
+  - Automatically differentiate between clinical and administrative documents
+
+  - Recommend the most effective wellness or disease management intervention for a patient
+
+  -  many, many more...
+
+
 
 ---
 # .orange[Classification]
   
 .left-code[
-  __Feature space__
-  
-  - data: points in $\mathbb{R}^d$
-    
-    - dimensions:  scalar measurements
-  
-  <br>
-    
-    __Classifier functions (_classifiers_)__
-  
-  - a classifier for $K$ classes is a function
-  
-  $$
-    f:\mathbb{R}^d \to \{1, \ldots, K \}   
-  $$
-    - classifiers carve up the space into regions
+__Feature space__
+
+- data: points in $\mathbb{R}^d$
+
+- dimensions:  scalar measurements
+
+<br>
+
+__Classifier functions (_classifiers_)__
+
+- a classifier for $K$ classes is a function
+
+$$
+f:\mathbb{R}^d \to \{1, \ldots, K \}   
+$$
+- classifiers carve up the space into regions
 ]
 
 .right-plot[
@@ -1425,57 +1458,6 @@ __Recall__: model selection **.orange[chooses a model complexity]** (hyper-param
 
   - it would lead to overfitting
 
-
-
----
-# .orange[Cross-validation]
-
-
-- train classifiers with .orange[different hyper-parameters] on training data
-
-- compute prediction errors under true distribution
-
-- choose the one with .orange[smallest prediction error]
-
-<br>
-
-
-.orange[Separating model selection and training] prevents overfitting
-
-<br>
-
-Approximation of actual data source by sample data
-
-  -  split training data set
-  
-  -  train on set 1
-  
-  -  test predictive performance on set 2
-
-
-
-
----
-# .orange[Cross-validation]
-
-Data splitting estimates the .orange[prediction error from data]
-
-<br>
-
-Prediction error estimates can be used in two ways
-
-  - model selection $\Leftrightarrow$ .orange[optimize] performance
-
-  - classifier assessment $\Leftrightarrow$ .orange[interpret] performance (estimates the prediction error of the final choice of classifier)
-
-
-<br>
-<br>
-
-
-.orange[We must not use the] .red[same data for both]
-
-
 ---
 # .orange[Cross-validation]
 
@@ -1499,6 +1481,29 @@ Prediction error estimates can be used in two ways
 .orange[Separate test set is crucial]:
 
   - prediction error estimate on validation set is confounded by model selection
+
+
+
+---
+# .orange[Cross-validation]
+
+Data splitting estimates the .orange[prediction error from data]
+
+<br>
+
+Prediction error estimates can be used in two ways
+
+  - model selection $\Leftrightarrow$ .orange[optimize] performance
+
+  - classifier assessment $\Leftrightarrow$ .orange[interpret] performance (estimates the prediction error of the final choice of classifier)
+
+
+<br>
+<br>
+
+
+.orange[We must not use the] .red[same data for both]
+
 
 
 
@@ -1621,23 +1626,6 @@ knitr::include_graphics("img/overfitting.png")
 
 
 
----
-# .orange[Suggestions]
-  
-### Validate (and fine-tune) your Model
-Separate your data into .orange[training], .orange[validation], and .orange[test sets].
-
-> .orange[If you take **ANY** decision after having seen a performance on a data set, it becomes a training one (even if you have treated it as a test)]
-
-### Do not be fooled by Accuracy
-
-For event that only happens 1% of the time,  you can easily report an accuracy of 99%: meaningless.
-
-Before starting a (classification) project, better figure out which precision and recall application (or _metrics_) requires to be useful
-
-> - .orange[Build the model with these metrics on your mind]
-> - .orange[When in doubt use balanced metrics]
-
 
 
 
@@ -1658,6 +1646,18 @@ countdown(minutes = 1, warn_when = 10, play_sound = TRUE,
           left = "70%", bottom = "15%")
 ```
 
+
+
+
+
+---
+class: inverse, middle, center, hide-count
+
+# Ready to go _deeper_?
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
+knitr::include_graphics("img/perplesso.jpg")
+```
 
 
 
@@ -1683,21 +1683,6 @@ countdown(minutes = 10, warn_when = 3, play_sound = TRUE,
 
 
 
-
-
-
-
-
-
-
----
-class: inverse, middle, center, hide-count
-
-# Can we go _deeper_?
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="100%"}
-knitr::include_graphics("img/perplesso.jpg")
-```
 
 
 
@@ -1735,6 +1720,12 @@ knitr::include_graphics("img/neuron.gif")
 <br>
 
 <img src="img/loss.png" width="100%"/>
+
+
+
+---
+### Can we try to write it down?
+3 input; 2 hidden layer w/ 2 neurons each; 1 (sigmoid) output 
 
 
 
@@ -1863,150 +1854,73 @@ knitr::include_graphics("img/multi-dl.jpg")
 
 ---
 class: inverse, middle, center, hide-count
-# .orange[A tour of Machine Learning algorithms<br>in healthcare]
+# .orange[A Machine Learning usecase project<br>in healthcare]
+
 
 
 
 ---
-# .orange[Classifier]
+class: inverse, center, middle, hide-count
+# **Case Study:<br><br>.orange[Expanding] PubMed .orange[searches] <br>.orange[to] ClinicalTrials.gov**
 
-Does data belong to class A? .orange[_is this really a heart failure patient?_]
+
+---
+# SRs on .orange[Clinical Trials]
+
+Clinical trial registries are under-utilized:
+
+- No hierarchical branching structure
+- Text search is based on few fields
+- Cannot use queries’ combination
+.right[Jones et al 2014, https://doi.org/10.1186/2046-4053-3-126]
+
 
 <br>
 
-Classifiers are the most commonly used ML algorithms in analytics applications
+.orange[Baudart et al] 2017 (https://doi.org/10.1136/bmj.j448) reanalyzed 14 Systematic reviews and Meta-analyses*, searching not only through standard databases but also in clinical trial registries:
+
+- Increase of patients .orange[from 10% to 50%]
+- Change in statistics .orange[up to 29%]
+
+> **~[1.5, 2] years of work for two researchers**:
+>
+>  - from: 2015/03/16 (first search)
+>  - to: [2016/08/11 (first submission), 2017/01/17 (last revision)]
 
 
-  -  Suggest possible patient diagnoses
-
-  - Identify patients with high readmission risk
-
-  - Automatically alert care providers early in the development of sepsis
-
-  - Define the threshods for _abnormal_ lab results
-
-  - Automatically differentiate between clinical and administrative documents
-
-  - Recommend the most effective wellness or disease management intervention for a patient
-
-  -  many, many more...
-
----
-# .orange[Classifiers: logistic regression]
-
-
-.orange[__Logistic regression__] is the workhorse of classifers
-
-
-  - it uses a single, straight cut to divide the world of possible features into two groups
-    
-$$\ln\left(\frac{p}{1-p} \right) = \beta_0 + \beta_1 X_1 + \ldots + \beta_p X_p$$
+<small>* All the (RCTs) assessing pharmaceutical treatments published between June 2014 and January 2015 that did not report a trial registry search.
 
 
 ---
-# .orange[Classifiers: Support-Vector Machine]
+### Method
 
-.orange[**SVM**] is a linear classifier with a twist
-
-The world of possible features is split by a single line as in logistic regression, but .orange[this line can be curved]. 
-
-This additional flexibility makes SVM highly adaptable
-
-> Because of the way the curvature is introduced (though a _kernel_), SVM are still .orange[simple to compute and interpret].
+**Learning**: .orange[Passive Supervised]  --  **Task**: Classification (.orange[many-to-one])
 
 
----
-# .orange[Classifiers: decision trees]
+**Training set**: PubMed (294 positives and 7,200 negative records overall)
 
-Family of algorithms, all based on the idea of creating a tree of decisions about features that lead to a specific classification
+**Test**: ClinicalTrials.gov (233,609 records, 2017/01/05 snapshot)
 
-  - Is ejection fraction above or below 50?
-  
-  - to identify heart failure, the algorithm may start with ejection fraction 
+### Results
 
-
-For each of these paths, a new question is considered
-
-  - does the echocardiogram show Left Ventricle Hypertrophy?
-
-<br>
-
-At the end of each series of questions the patient falls into either a .orange[heart failure] or a .orange[not heart failure] diagnosis (bucket)
+**Model left out 1 of 133 human-detected** positive citations .orange[from 233,609 trials] in ClinicalTrials.gov
 
 
----
-# .orange[Classifiers: random forest]
-
-Improves upon decision trees by dividing the input data into .orange[many different subsets] and creating a different decision tree for each of them
-
-  - All of the different resulting decision trees then .orange[vote] to determine the final classification of the input
-
-<br>
-
-Reduces the risk of making the final buckets too small and subsequently being fooled by random variations in the original labeled training data
+Total number of records from our automated search (**predicted positives**) was .orange[lower than] the number of records from .orange[the manual search] in half the cases (with a mean of 472 and a maximum of 2119 records compared with 572 and 2680, respectively, retrieved by Baudard et al).
 
 
+The ability to **distinguish on-topic** from off-topic articles ranged from an area under the receiver operator characteristic curve .orange[(AUC-ROC) of 93.4% to 99.9%].
 
 
----
-## .orange[Classifiers: Neural Networks] 
-
-(Naive) .orange[__definition:__] A large (huge...) number of highly interconnected simple processing elements (neurons) working together to solve specific problems.
-
-
-.pull-left[
-
-- an .orange[input layer] of neurons
-- one or more .orange[hidden layers]
-- an .orange[output layer]
-
-
-- Each internal node receives inputs from other units
-- A weight $w$ is associated to each input
-- The unit computes a function of the weighted sum of its inputs
-- Outputs are compared with target to compute the value of some predefined error function
-- The error is feedback through the network
-- the algorithm adjust the weights of each connection to reduce the value of the error function
+<small>.right[
+— Lanera C. et al 2018<br> https://doi.org/10.1016/j.jclinepi.2018.06.015
 ]
 
 
-.pull-right[
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="70%"}
-include_graphics("img/nn_2.png")
-```
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="70%"}
-include_graphics("img/nn_1.png")
-```
-
-]
-
-
-
-
 ---
-# .orange[Clustering]
+#### **Flowchart**
 
-Can the data be grouped into natural categories or buckets?
-
-.orange[_Are there natural groupings that can help me understand my patients?_]
-
-<br>
-
-- Can automatically identify naturally occurring groups of similar items
-  
-> E.g., .orange[K-Means]: the algorithm is given a set of attributes and a number of clusters to create
-
-- the algorithm works out which combinations of attributes most accurately divide the items into that number of groups 
-
-- attributes: for example, diagnoses and lab measurements
-
-
-<br>
-
-> resulting _clusters_ are .orange[interpreted by humans] by looking at
-which attributes are most important in the cluster
-
+<img src="img/costumer.jpg" width="100%">
 
 
 
@@ -2029,96 +1943,49 @@ class: inverse, middle, center, hide-count
 
 
 
----
-# .orange[Ask a Specific Question]
-
-ML algorithm should answer a .orange[very specific question]
-
-The best first question is something already known to have a reference and some intuition to compare results with
-
-
-
 
 ---
-# .orange[Start simple]
+## .orange[Start quickly and simple; **next iterate**!]
 
-.orange[Keep it simple] both for model selection and data for your analysis
-
-  - start with the minimal set of data that could get you to a good result
-
-
-<br>
+Keep .orange[robustness]
+- less model complexity and fewer parameters are always beneficial 
 
 
-.orange[Keep robustness]
-
-  - less model complexity and fewer parameters are always beneficial 
-
-
-<br>
-
-> .orange[Start quickly and simple, and next iterate!]
+Keep it .orange[simple] both for model selection and data for your analysis
+- start with the minimal set of data that could get you to a good result
 
 
 
----
-# .orange[Try Many Algorithms]
-
-Try a few different algorithms to see how they work
-
-
-If one classifier works incredibly well and another doesn't seem to work well at all, .orange[be cautious]
-
-- maybe overfitting situation, not really have much predictive power 
-
-
-.orange[Combine methods]
-
-The better your features, the better your performance will be
-
-Data is more important than the exact algorithm you use  
-
-- more training data is always desirable. 
-
-<br>
+## .orange[Treat data with suspicious]
   
-> .orange[start with SVM or RF (or even with simple linear regression!)]
-
-
-
----
-# .orange[Treat data with suspicious]
-  
-  Look at the data 
-
+.orange[Look] at the data 
 - dig into its details 
-
 - look for correlations
+- systematic biases, errors, and flaw
 
-- systematic biases, errors, and flaws
-
-
-<br>
-<br>
-  
 .orange[Normalize] input data 
-
 - ML algorithms can perform .orange[poorly and slowly] if there are large differences in scale between different features
 
 
 
 ---
-# .orange[Validate your Model]
-  
-Separate your data into .orange[training, validation, and test sets]
+## Validate (and fine-tune) your Model
+Separate your data into .orange[training], .orange[validation], and .orange[test sets].
 
-- if you are using K-fold cross validation, at least hold out a test set 
+> .orange[If you take **ANY** decision after having seen a performance on a data set, it becomes a training one (even if you have treated it as a test)]
 
-<br>
-<br>
-<br>
-  
-> .orange[If you take ANY decision after having seen a performance on a data set, it becomes a training one (even if you have treated it as a test)]
+## Do not be fooled by Accuracy
+
+For event that only happens 1% of the time,  you can easily report an accuracy of 99%: meaningless.
+
+Before starting a (classification) project, better figure out which precision and recall application (or _metrics_) requires to be useful
+
+> - .orange[Build the model with these metrics on your mind]
+> - .orange[When in doubt use balanced metrics]
+
+
+
+
 
 
 ---
@@ -2130,58 +1997,16 @@ Some ML methods are more transparent than others
 
 - Linear regression can tell how important each feature is to the final output 
 
+- Same for decision trees, but they are easily prone to overfitting! 
+
 
 <br>
   
-Random forests are .orange[difficult to interpret]. 
+Random forests are .orange[difficult to interpret].
 
-Neural networks, deep learning are .orange[truly black boxes]
-
-- very little transparency (very high effort to obtain it) to what is important in the decision making process
+Neural networks and deep learning are .orange[truly black boxes], i.e., very little transparency to what is important in the decision making process (or very high effort to obtain it).
 
 
-
----
-# .orange[Monitoring ongoing performance & keep track of model changes] 
-  
-Check your results against incoming new data 
-
-- monitor data and algorithm statistics with a dashboard
-
-<br>
-  
-.orange[Track the revision of your model] along with data analytics pipeline
-
-
-
----
-# .orange[Do not be fooled by Accuracy]
-  
-While looking for a rare event that only happens 1% of the time,  you can report your accuracy as 99% 
-  
-- meaningless 
-
-<br>
-  
-Before starting a project, better figure out which precision and recall application requires to be useful
-
-> - .orange[Build the model with these metrics on your mind]
-> - .orange[Use balanced metrics]
-
-
-
-
-
-
-
-
-
-
-
-
----
-class: inverse
-# Resources
 
 
 
@@ -2199,15 +2024,10 @@ class: inverse
 class: inverse, center, middle, hide-count
 
 
-.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
-.left[
-_If you think the only acceptable performance is the ".orange[perfect performance]",<br>AI is not for you!<br>But, I've heard that even humans have made mistakes..._
-]
+```{r, echo=FALSE, out.width = "50%"}
+knitr::include_graphics("img/procione.jpeg")
+```
 
-.tr[
-— Daniel Oberski<br>2021/03/26 ASReview interview<br>https://daob.nl/
-]
-]
 
 <br>
 # Thank .orange[you] for the attention!

@@ -63,25 +63,6 @@
       "Hash": "32e79b908fda56ee57fe518a8d37b864",
       "Requirements": []
     },
-    "anicon": {
-      "Package": "anicon",
-      "Version": "0.1.0",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "emitanaka",
-      "RemoteRepo": "anicon",
-      "RemoteRef": "master",
-      "RemoteSha": "0b756dfd9792c3f67d48fb8aeb7d8a94a0768ba6",
-      "Remotes": "emitanaka/icon",
-      "Hash": "6e133376356d5e275e394e045e58366e",
-      "Requirements": [
-        "htmltools",
-        "icon",
-        "knitr",
-        "rmarkdown"
-      ]
-    },
     "askpass": {
       "Package": "askpass",
       "Version": "1.1",
@@ -356,6 +337,28 @@
         "rlang"
       ]
     },
+    "emo": {
+      "Package": "emo",
+      "Version": "0.0.0.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "hadley",
+      "RemoteRepo": "emo",
+      "RemoteRef": "master",
+      "RemoteSha": "3f03b11491ce3d6fc5601e210927eff73bf8e350",
+      "Hash": "5ece31a6c0f94811e6bef59482d87164",
+      "Requirements": [
+        "assertthat",
+        "crayon",
+        "glue",
+        "lubridate",
+        "magrittr",
+        "purrr",
+        "rlang",
+        "stringr"
+      ]
+    },
     "evaluate": {
       "Package": "evaluate",
       "Version": "0.15",
@@ -628,23 +631,6 @@
         "jsonlite",
         "mime",
         "openssl"
-      ]
-    },
-    "icon": {
-      "Package": "icon",
-      "Version": "0.1.0",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "emitanaka",
-      "RemoteRepo": "icon",
-      "RemoteRef": "master",
-      "RemoteSha": "8458546e28153e25688042a5d7d97a2c899f9b4c",
-      "Hash": "a350c7721535e7e47ea17fae31e1311b",
-      "Requirements": [
-        "htmltools",
-        "knitr",
-        "rmarkdown"
       ]
     },
     "ids": {
