@@ -81,7 +81,7 @@ meta() %>%
   meta_name("github-repo" = "CorradoLanera/ws-mlt") %>% 
   meta_social(
     title = "Artificial Intelligence and Machine Learning in Supporting Clinical Decision",
-    url = "https://CorradoLanera.github.io/ws-mlt/#1",
+    url = "https://CorradoLanera.github.io/ws-mlt",
     image = "https://github.com/CorradoLanera/ws-mlt/raw/main/img/cover.jpg",
     og_type = "website",
     og_author = "UBEP",
@@ -160,17 +160,17 @@ style_duo_accent(
 
 
 <br>
-<br>
 # **.orange[How] Machine .orange[Learning]**<br>and **Artificial .orange[Intelligence]** can<br>**Support Clinical .orange[Decision]**
 
-<br>
-Slide at: https://CorradoLanera.github.io/ws-mlt
-<br>
+Slide at: https://CorradoLanera.github.io/ws-mlt  
+```{r, echo=FALSE, out.width = "12%"}
+knitr::include_graphics("img/bit.ly_ws-mlt.png")
+```
 <br>
 
-**Biostatistics Seminaries** - Padova, 2022/05/27 -
+**Biostatistics Seminaries** - Padova, 2022/09/28 -
 
-Ph.D. Course in Specialistic Traslational Medicine "G.B. Morgagni"
+Ph.D. Course in Pharmacological Sciences --- University of Padova
 
 Corrado Lanera | [**Unit of Biostatistics, Epidemiology, and Public Health**](https://www.unipd-ubep.it/)
 
@@ -179,7 +179,7 @@ Corrado Lanera | [**Unit of Biostatistics, Epidemiology, and Public Health**](ht
 ---
 class: hide-count
 .panelset[
-```{r, panelset = TRUE, out.width="70%"}
+```{r, panelset = TRUE, fig.width=6.4, fig.height=3.6}
 # The downloaded csv with graph data of your PubMed query
 pmlt_path <- here("data/PubMed_Timeline_Results_by_Year.csv")
 
@@ -189,15 +189,14 @@ pmlt_path |>
   geom_point() +
   geom_label(
     aes(label = glue::glue("Total = {sum(Count)}")),
-    x = 1980,
-    y = 1e4
+    x = 1995,
+    y = 3000
   ) +
   labs(
-    title = "Historical progression of MLT/AI papers in \"our\" field",
+    title = "Historical progression of MLT/AI papers in \"your\" field",
 # The first line is the query :-)
     caption = read_lines(pmlt_path, n_max = 1)
-  ) +
-  theme(plot.caption = element_text(size = 7))  # It's a long query...
+  )
 ```
 ]
 
@@ -207,7 +206,7 @@ pmlt_path |>
 class: inverse, hide-count
 # What we are going to see
 
-Purpose of this seminary is to introducing **.orange[what is]** Machine Learning, why/in what is different from other (statistical) tools, how to understand (and **.orange[trust]**!) it's results, and looking at **.orange[some example]** and **.orange[best practice]** in conducing a machine learning project.
+Purpose of this seminar is to introducing **.orange[what is]** Machine Learning, why/in what is different from other (statistical) tools, how to understand (and **.orange[trust]**!) it's results, and looking at **.orange[some example]** and **.orange[best practice]** in conducing a machine learning project.
 
 <br>
 <br>
@@ -234,10 +233,6 @@ knitr::include_graphics(c("img/thankyou-robot.jpg"))
 ```
 ]
 
-<br><br>
-
-> Special thanks also to .orange[**Cristiana Vettori**] (UBEP) for having supported me in all the administratives related to this presentation.
-
 
 ---
 class: inverse, bottom, right, hide-count
@@ -261,7 +256,7 @@ knitr::include_graphics("img/profilo_CL.jpg")
 
 [`r fontawesome::fa("mail-bulk")`](mailto:Corrado.Lanera@ubep.unipd.it) [**Corrado.Lanera**__.orange[@ubep.unipd.it]__](mailto:Corrado.Lanera@ubep.unipd.it)
 
-
+[`r fontawesome::fa("calendar-check")`](https://calendly.com/corradolanera) [**calendly.com/corradolanera**](https://calendly.com/corradolanera)
 
 ---
 class: inverse, middle
@@ -356,7 +351,7 @@ E.g., Misclassification error (**P**) for diagnoses' classification (**T**) impr
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt1[
   .left[
-    A task (red box) requires an appropriate mapping - a model- from data described by feature to outputs. **Obtaining** such mapping from training data is what constitute a .orange[learning problem] (blue box).
+    A task (red box) requires an appropriate mapping - a model- from data described by feature to outputs. **Obtaining** such mapping from training data is what constitute a **learning problem** (blue box).
   ]
   
   .tr[
@@ -386,7 +381,7 @@ A __task__ is something the ML must carry out
 
 - the process of learning itself is not the task
 
-- _Learning_ is the act of generate models having the ability to perform the task
+- _Learning_ is .orange[the act of generate models] having the ability to perform the task
 
 
 
@@ -395,6 +390,14 @@ A __task__ is something the ML must carry out
 
 
 A __task__ is defined in terms of _how the ML should process a collection of Examples_, i.e. a .orange[dataset].
+
+
+---
+# .orange[Learning: are cars "learning"?!]
+
+<iframe width="800" height="450" src="https://www.youtube.com/embed/Aut32pR5PQA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+... or is the generative models which learns to produce well trained cars!?
 
 ---
 # .orange[Task: Example]
@@ -432,7 +435,7 @@ Usually __performance__ is measured in terms of:
 <br>
   
 
-### .orange[**WARNING**: unbalanced data require balanced metrics!]
+#### .orange[**WARNING**: unbalanced data require balanced metrics!]
   
   
   
@@ -568,15 +571,15 @@ With input data labeled on the fly by .orange[oracle's knowledge], the model cyc
 ---
 # .orange[Basic **components**]
 
-.orange[Training dataset]: data used as input to the learner to train the model
+.orange[**Training** dataset]: data used as input to the learner to train the model
 
-.orange[Validation dataset]: data used by the learner for validation and optimization
+.orange[**Validation** dataset]: data used by the learner for validation and optimization
 
 .orange[Training model]: the ML artifact that comes out of the training process
 
 .orange[Cost (or loss) function]: a function to optimize in the ML system (sum of squared errors over the training data set)
 
-.orange[Test dataset]: data provided to the trained model for performance estimations
+.orange[**Test** dataset]: data provided to the trained model for performance estimations
 
 
 
@@ -630,7 +633,7 @@ include_graphics("img/food.jpg")
 ---
 # .orange[Classification]
 
-Does data belong to class A? .orange[_is this really a heart failure patient?_]
+Does data belong to class A? .orange[_**is this really a heart failure patient?**_]
 
 <br>
 
@@ -999,7 +1002,7 @@ include_graphics("img/kernel_2.gif")
 ---
 # .orange[Example of the kernel trick]
 
-Now you got completely linearly separable data
+Now you got completely _linearly_ separable data
 
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="70%"}
@@ -1031,16 +1034,16 @@ class: inverse, middle, center, hide-count
 # Your turn
 
 .left[
-The **C** parameter of SVMs MLTs determines the ammount of violation admitted, i.e. magnitude of data allowed to _cross the line_ (so, it cannot be negative).
+The **C** parameter of SVMs MLTs determines the amount of violation admitted, i.e. how much **.orange[weight]** have data _crossing the line_ (so, it cannot be negative).
 
-C = 0 is "no violation admitted".
+C = 0 is "violation is not relevant" (i.e., you can cross the line as much as you want).
 
 **Increasing** C, we provide **.orange[more or less] flexibility** to the model?
 ]
 
 ```{r, echo = FALSE}
 countdown(minutes = 1, warn_when = 10, play_sound = TRUE,
-          left = "70%", bottom = "20%")
+          left = "70%", bottom = "15%")
 ```
 
 
@@ -1153,7 +1156,7 @@ grid.arrange(
 
 
 ---
-# .orange[Weak learner: tree classifier]
+# .orange[_Weak_ learner: tree classifier]
 
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="70%"}
@@ -1162,7 +1165,7 @@ include_graphics("img/tree_1.png")
 
 
 ---
-# .orange[Weak learner: tree classifier]
+# .orange[_Weak_ learner: tree classifier]
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="70%"}
 include_graphics("img/tree_2.png")
@@ -1170,7 +1173,7 @@ include_graphics("img/tree_2.png")
 
 
 ---
-# .orange[Weak learner: tree classifier]
+# .orange[_Weak_ learner: tree classifier]
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="70%"}
 include_graphics("img/tree_3.png")
@@ -1178,14 +1181,14 @@ include_graphics("img/tree_3.png")
 
 
 ---
-# .orange[Weak learner: tree classifier]
+# .orange[_Weak_ learner: tree classifier]
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", out.width="70%"}
 include_graphics("img/tree_4.png")
 ```
 
 ---
-# .orange[Weak learner: tree classifier]
+# .orange[_Weak_ learner: tree classifier]
 
 
 .pull-left[
@@ -1369,9 +1372,13 @@ include_graphics("img/Figure_9.png")
 ---
 # .orange[Overfitting]
 
-Every additional parameter in the model introduces **new sources of uncertainty** and potential to affect results in non-intuitive ways that may either be useful or deceptive
+**.orange[Every]** additional parameter in the model introduces **new sources of uncertainty** and potential to affect results in non-intuitive ways that may either be useful or deceptive
 
-Complex models must be well-characterized in terms of their behavior before they are used for .orange[__forecasting__ ]
+<br>
+<br>
+<br>
+
+> Complex models must be well-characterized in terms of their behavior before they are used for .orange[__forecasting__ ]
 
 
 
@@ -1391,7 +1398,7 @@ knitr::include_graphics("img/yogi-berra-photo-quote-1.jpg")
 # .orange[Bias and Variance trade-off]
   
 In order to minimize test error on new data points we need to
-> **select a function** that achieves .orange[*low variance*] and .orange[*low bias*].
+> **select a function** that achieves **.orange[_low variance_]** and **.orange[_low bias_]**.
 
 
 - .orange[**Variance**] refers to the amount by which our predictions would **change if we estimated using a different training set**. 
@@ -1454,7 +1461,7 @@ __Recall__: model selection **.orange[chooses a model complexity]** (hyper-param
 <br>
 <br>
 
-.orange[Model selection cannot be performed by minimizing the training error]
+.orange[Model selection **cannot be performed by minimizing the training error**]
 
   - it would lead to overfitting
 
@@ -1470,15 +1477,15 @@ __Recall__: model selection **.orange[chooses a model complexity]** (hyper-param
   c. test set (hold out set)
 
 
-2. Train classifiers with .orange[different hyper-parameters] on training set
+2. Train classifiers with **.orange[different hyper-parameters]** on training set
 
-3. Select that with smallest .orange[prediction error on validation set]
+3. Select that with smallest **.orange[prediction error on validation set]**
 
-4. Estimate .orange[performance on test set]
+4. Estimate **.orange[performance on test set]**
 
 <br>
 
-.orange[Separate test set is crucial]:
+**.orange[Separate test set is **crucial**]**:
 
   - prediction error estimate on validation set is confounded by model selection
 
@@ -1502,7 +1509,7 @@ Prediction error estimates can be used in two ways
 <br>
 
 
-.orange[We must not use the] .red[same data for both]
+We **must not use** **.orange[same data for both]**
 
 
 
@@ -2047,5 +2054,7 @@ Slides: https://CorradoLanera.github.io/ws-mlt
 **@CorradoLanera** | 
 [`r fontawesome::fa("github")`](https://github.com/UBESP-DCTV)
 **@UBESP-DCTV**
+
+[`r fontawesome::fa("calendar-check")`](https://calendly.com/corradolanera) [**calendly.com/corradolanera**](https://calendly.com/corradolanera)
 
 
