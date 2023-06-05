@@ -1,5 +1,5 @@
 ---
-title: "Artificial Intelligence and Machine Learning in Supporting Clinical Decision"
+title: "Introduction to Artificial Intelligence and Machine Learning in Supporting Clinical Decision"
 subtitle: 'EVENT - CONTEXT/SCHOOL'
 author: "[CorradoLanera](www.CorradoLanera.it)"
 date: "2022-05-27 (last update: `r Sys.Date()`)"
@@ -75,7 +75,7 @@ style_share_again(
 ```{r meta, echo=FALSE}
 meta() %>%
   meta_general(
-    description = "Artificial Intelligence and Machine Learning in Supporting Clinical Decision",
+    description = "Introduction to Artificial Intelligence and Machine Learning in Supporting Clinical Decision",
     generator = "xaringan and remark.js"
   ) %>% 
   meta_name("github-repo" = "CorradoLanera/ws-mlt") %>% 
@@ -160,7 +160,7 @@ style_duo_accent(
 
 
 <br>
-# **.orange[How] Machine .orange[Learning]**<br>and **Artificial .orange[Intelligence]** can<br>**Support Clinical .orange[Decision]**
+# Introduction to <br>**.orange[How] Machine .orange[Learning]**<br>and **Artificial .orange[Intelligence]** can<br>**Support Clinical .orange[Decision]**
 
 Slide at: https://CorradoLanera.github.io/ws-mlt  
 ```{r, echo=FALSE, out.width = "12%"}
@@ -168,9 +168,9 @@ knitr::include_graphics("img/bit.ly_ws-mlt.png")
 ```
 <br>
 
-**Biostatistics Seminaries** - Padova, 2022/09/28 -
+**Biostatistics Seminar** - Padova, 2023/06/05 -
 
-Ph.D. Course in Pharmacological Sciences --- University of Padova
+Scuola di Specialità in Fisica Medica --- University of Padova
 
 Corrado Lanera | [**Unit of Biostatistics, Epidemiology, and Public Health**](https://www.unipd-ubep.it/)
 
@@ -599,7 +599,7 @@ class: middle, hide-count, inverse
 - go to the bathroom
 
 ```{r, echo = FALSE}
-countdown(minutes = 10, warn_when = 3, play_sound = TRUE,
+countdown(minutes = 5, warn_when = 1, play_sound = TRUE,
           left = "65%", bottom = "5%")
 ```
 
@@ -1287,7 +1287,7 @@ class: middle, hide-count, inverse
 - go to the bathroom
 
 ```{r, echo = FALSE}
-countdown(minutes = 10, warn_when = 3, play_sound = TRUE,
+countdown(minutes = 5, warn_when = 1, play_sound = TRUE,
           left = "65%", bottom = "5%")
 ```
 
@@ -1681,7 +1681,7 @@ class: middle, hide-count, inverse
 - go to the bathroom
 
 ```{r, echo = FALSE}
-countdown(minutes = 10, warn_when = 3, play_sound = TRUE,
+countdown(minutes = 60, warn_when = 5, play_sound = TRUE,
           left = "65%", bottom = "5%")
 ```
 
